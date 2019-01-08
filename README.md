@@ -20,6 +20,8 @@
 - PostegreSQL Database Server
 - [Visual Studio 2017 version 15.7 with .NET Core SDK 2.1.1](https://www.microsoft.com/net/download/all)
 
+
+
 **Steps to run**
 
 - Restore backup SQL in database_backups folder.
