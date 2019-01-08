@@ -32,6 +32,7 @@
 - EFCore 2.1
 - Amazon Cloud Formations SDK
 - Microsoft Azure Resource Manager
+- 
 - Autofac 4.2.2
 - MediatR 6 for domain event
 
