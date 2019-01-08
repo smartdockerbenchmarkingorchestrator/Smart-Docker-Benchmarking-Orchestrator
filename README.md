@@ -35,6 +35,8 @@
 - Autofac 4.2.2
 - MediatR 6 for domain event
 
+
+
 ## Docs
 
 TBC
