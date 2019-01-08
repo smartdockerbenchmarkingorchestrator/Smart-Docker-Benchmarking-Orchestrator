@@ -1,0 +1,405 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+2018/08/13 14:02:59,10155,53546,200,OK,Thread Group 1-4,text,true,,527129,14951,5,5,8553,0,13
+2018/08/13 14:02:59,10155,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527129,14951,5,5,8553,3,13
+2018/08/13 14:03:05,4263,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,5,5,2553,0,12
+2018/08/13 14:03:05,4263,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,5,5,2553,3,12
+2018/08/13 14:02:53,16321,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,5,5,14553,0,13
+2018/08/13 14:02:53,16321,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,5,5,14553,2,13
+2018/08/13 14:02:41,28353,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,5,5,26501,0,83
+2018/08/13 14:02:41,28353,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,5,5,26501,54,83
+2018/08/13 14:02:47,22408,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,5,5,20553,0,13
+2018/08/13 14:02:47,22408,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,5,5,20553,3,13
+2018/08/13 14:03:09,1517,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,5,5,1270,0,0
+2018/08/13 14:03:09,1517,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,5,5,1270,2,0
+2018/08/13 14:03:09,1405,53546,200,OK,Thread Group 1-3,text,true,,527129,14951,5,5,1144,0,0
+2018/08/13 14:03:09,1405,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527129,14951,5,5,1144,1,0
+2018/08/13 14:03:09,1343,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,5,5,1077,0,0
+2018/08/13 14:03:09,1343,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,5,5,1077,1,0
+2018/08/13 14:03:09,1653,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,5,5,1163,0,0
+2018/08/13 14:03:09,1653,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,5,5,1163,2,0
+2018/08/13 14:03:09,1650,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,6,6,1309,0,0
+2018/08/13 14:03:09,1650,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,6,6,1309,1,0
+2018/08/13 14:03:10,1144,53546,200,OK,Thread Group 1-4,text,true,,527129,14951,6,6,889,0,0
+2018/08/13 14:03:10,1144,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527129,14951,6,6,889,1,0
+2018/08/13 14:03:10,1142,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,6,6,880,0,0
+2018/08/13 14:03:10,1142,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,6,6,880,1,0
+2018/08/13 14:03:10,1156,53546,200,OK,Thread Group 1-1,text,true,,527129,14951,6,6,944,0,0
+2018/08/13 14:03:10,1156,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527129,14951,6,6,944,0,0
+2018/08/13 14:03:11,1300,53546,200,OK,Thread Group 1-5,text,true,,527129,14951,6,6,834,0,0
+2018/08/13 14:03:11,1300,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527129,14951,6,6,834,1,0
+2018/08/13 14:03:11,1222,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,6,6,758,0,13
+2018/08/13 14:03:11,1222,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,6,6,758,1,13
+2018/08/13 14:03:11,2552,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,6,6,1952,0,0
+2018/08/13 14:03:11,2552,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,6,6,1952,1,0
+2018/08/13 14:03:11,1802,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,6,6,1195,0,0
+2018/08/13 14:03:11,1802,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,6,6,1195,1,0
+2018/08/13 14:03:11,1783,53546,200,OK,Thread Group 1-3,text,true,,527129,14951,6,6,1494,0,0
+2018/08/13 14:03:11,1783,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527129,14951,6,6,1494,1,0
+2018/08/13 14:03:12,1593,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,6,6,1300,0,0
+2018/08/13 14:03:12,1593,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,6,6,1300,1,0
+2018/08/13 14:03:12,1766,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,6,6,1306,0,0
+2018/08/13 14:03:12,1766,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,6,6,1306,1,0
+2018/08/13 14:03:11,2429,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,6,6,1916,0,0
+2018/08/13 14:03:11,2429,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,6,6,1916,1,0
+2018/08/13 14:03:13,1412,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,6,6,1140,0,0
+2018/08/13 14:03:13,1412,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,6,6,1140,0,0
+2018/08/13 14:03:13,1394,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,6,6,1198,0,0
+2018/08/13 14:03:13,1394,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,6,6,1198,1,0
+2018/08/13 14:03:13,1557,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,6,6,1144,0,0
+2018/08/13 14:03:13,1557,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,6,6,1144,2,0
+2018/08/13 14:03:13,1418,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,6,6,1197,0,0
+2018/08/13 14:03:13,1418,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,6,6,1197,1,0
+2018/08/13 14:03:14,1590,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,6,6,1249,0,0
+2018/08/13 14:03:14,1590,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,6,6,1249,0,0
+2018/08/13 14:03:14,1419,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,6,6,1123,0,0
+2018/08/13 14:03:14,1419,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,6,6,1123,0,0
+2018/08/13 14:03:15,1129,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,6,6,866,0,15
+2018/08/13 14:03:15,1129,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,6,6,866,0,15
+2018/08/13 14:03:15,1179,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,6,6,893,0,0
+2018/08/13 14:03:15,1179,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,6,6,893,1,0
+2018/08/13 14:03:15,1278,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,6,6,949,0,13
+2018/08/13 14:03:15,1215,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,6,6,895,0,0
+2018/08/13 14:03:15,1215,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,6,6,895,1,0
+2018/08/13 14:03:15,1278,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,6,6,949,1,13
+2018/08/13 14:03:15,1407,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,6,6,1124,0,13
+2018/08/13 14:03:15,1407,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,6,6,1124,0,13
+2018/08/13 14:03:15,1503,53546,200,OK,Thread Group 1-1,text,true,,527152,14951,7,7,971,0,0
+2018/08/13 14:03:15,1503,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527152,14951,7,7,971,2,0
+2018/08/13 14:03:16,1358,53546,200,OK,Thread Group 1-4,text,true,,527129,14951,7,7,1167,0,0
+2018/08/13 14:03:16,1358,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527129,14951,7,7,1167,1,0
+2018/08/13 14:03:16,1317,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,7,7,953,0,0
+2018/08/13 14:03:16,1317,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,7,7,953,2,0
+2018/08/13 14:03:16,1641,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,7,7,1016,0,0
+2018/08/13 14:03:16,1641,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,7,7,1016,2,0
+2018/08/13 14:03:16,2155,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,7,7,1938,0,0
+2018/08/13 14:03:16,2155,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,7,7,1938,0,0
+2018/08/13 14:03:17,1441,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,7,7,1211,0,13
+2018/08/13 14:03:17,1441,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,7,7,1211,1,13
+2018/08/13 14:03:17,1507,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,7,7,1313,0,0
+2018/08/13 14:03:17,1507,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,7,7,1313,0,0
+2018/08/13 14:03:17,1247,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,7,7,1046,0,0
+2018/08/13 14:03:17,1247,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,7,7,1046,1,0
+2018/08/13 14:03:17,1478,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,7,7,864,0,0
+2018/08/13 14:03:17,1478,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,7,7,864,1,0
+2018/08/13 14:03:18,1068,53546,200,OK,Thread Group 1-2,text,true,,527129,14951,7,7,880,0,0
+2018/08/13 14:03:18,1068,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527129,14951,7,7,880,1,0
+2018/08/13 14:03:17,1971,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,7,7,1473,0,0
+2018/08/13 14:03:17,1971,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,7,7,1473,0,0
+2018/08/13 14:03:18,1733,53546,200,OK,Thread Group 1-7,text,true,,527152,14951,7,7,1197,0,0
+2018/08/13 14:03:18,1733,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527152,14951,7,7,1197,1,0
+2018/08/13 14:03:18,1791,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,7,7,1249,0,0
+2018/08/13 14:03:18,1791,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,7,7,1249,1,0
+2018/08/13 14:03:18,1793,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,7,7,1571,0,0
+2018/08/13 14:03:18,1793,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,7,7,1571,1,0
+2018/08/13 14:03:18,1811,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,7,7,1565,0,0
+2018/08/13 14:03:18,1811,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,7,7,1565,1,0
+2018/08/13 14:03:19,1355,53546,200,OK,Thread Group 1-4,text,true,,527129,14951,7,7,1124,0,0
+2018/08/13 14:03:19,1355,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527129,14951,7,7,1124,1,0
+2018/08/13 14:03:19,1701,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,7,7,1028,0,0
+2018/08/13 14:03:19,1701,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,7,7,1028,0,0
+2018/08/13 14:03:19,1352,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,7,7,1090,0,0
+2018/08/13 14:03:19,1352,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,7,7,1090,1,0
+2018/08/13 14:03:20,1266,53546,200,OK,Thread Group 1-7,text,true,,527152,14951,7,7,1025,0,0
+2018/08/13 14:03:20,1266,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527152,14951,7,7,1025,2,0
+2018/08/13 14:03:20,1265,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,7,7,1015,0,0
+2018/08/13 14:03:20,1265,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,7,7,1015,1,0
+2018/08/13 14:03:20,1209,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,7,7,956,0,0
+2018/08/13 14:03:20,1209,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,7,7,956,2,0
+2018/08/13 14:03:20,1212,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,7,7,957,0,0
+2018/08/13 14:03:20,1212,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,7,7,957,0,0
+2018/08/13 14:03:20,1288,53546,200,OK,Thread Group 1-4,text,true,,527129,14951,7,7,941,0,0
+2018/08/13 14:03:20,1288,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527129,14951,7,7,941,1,0
+2018/08/13 14:03:20,1242,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,6,6,1033,0,0
+2018/08/13 14:03:20,1242,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,6,6,1033,1,0
+2018/08/13 14:03:21,1333,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,6,6,1128,0,0
+2018/08/13 14:03:21,1333,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,6,6,1128,1,0
+2018/08/13 14:03:21,1111,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,6,6,885,0,0
+2018/08/13 14:03:21,1111,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,6,6,885,2,0
+2018/08/13 14:03:21,1126,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,5,5,902,0,0
+2018/08/13 14:03:21,1126,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,5,5,902,1,0
+2018/08/13 14:03:21,1095,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,5,5,856,0,0
+2018/08/13 14:03:21,1095,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,5,5,856,0,0
+2018/08/13 14:03:21,1299,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,4,4,893,0,0
+2018/08/13 14:03:21,1299,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,4,4,893,0,0
+2018/08/13 14:03:22,884,53546,200,OK,Thread Group 1-2,text,true,,527152,14951,3,3,698,0,0
+2018/08/13 14:03:22,884,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527152,14951,3,3,698,1,0
+2018/08/13 14:03:22,1052,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,3,3,855,0,0
+2018/08/13 14:03:22,1052,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,3,3,855,1,0
+2018/08/13 14:03:22,921,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,3,3,725,0,0
+2018/08/13 14:03:22,921,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,3,3,725,2,0
+2018/08/13 14:03:23,1018,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,3,3,714,0,12
+2018/08/13 14:03:23,1018,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,3,3,714,1,12
+2018/08/13 14:03:23,870,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,3,3,688,0,0
+2018/08/13 14:03:23,870,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,3,3,688,1,0
+2018/08/13 14:03:23,869,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,684,0,0
+2018/08/13 14:03:23,869,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,684,1,0
+2018/08/13 14:03:24,1042,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,715,0,0
+2018/08/13 14:03:24,1042,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,715,1,0
+2018/08/13 14:03:24,861,53546,200,OK,Thread Group 1-7,text,true,,527129,14951,2,2,686,0,0
+2018/08/13 14:03:24,861,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527129,14951,2,2,686,1,0
+2018/08/13 14:03:25,793,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,683,0,0
+2018/08/13 14:03:25,793,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,683,1,0
+2018/08/13 14:03:25,1080,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,690,0,0
+2018/08/13 14:03:25,1080,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,690,0,0
+2018/08/13 14:03:25,912,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,729,0,0
+2018/08/13 14:03:25,912,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,729,1,0
+2018/08/13 14:03:26,819,53546,200,OK,Thread Group 1-7,text,true,,527129,14951,2,2,705,0,0
+2018/08/13 14:03:26,819,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527129,14951,2,2,705,0,0
+2018/08/13 14:03:26,872,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,697,0,0
+2018/08/13 14:03:26,872,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,697,0,0
+2018/08/13 14:03:27,997,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,703,0,0
+2018/08/13 14:03:27,997,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,703,2,0
+2018/08/13 14:03:27,912,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,1,1,723,0,0
+2018/08/13 14:03:27,912,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,1,1,723,1,0
+2018/08/13 14:03:28,925,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,753,0,0
+2018/08/13 14:03:28,925,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,753,0,0
+2018/08/13 14:03:29,911,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,713,0,13
+2018/08/13 14:03:29,911,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,713,1,13
+2018/08/13 14:03:29,881,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,695,0,0
+2018/08/13 14:03:29,881,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,695,6,0
+2018/08/13 14:03:30,1004,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,718,0,0
+2018/08/13 14:03:30,1004,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,718,1,0
+2018/08/13 14:03:30,897,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,707,0,0
+2018/08/13 14:03:30,897,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,707,-1,0
+2018/08/13 14:03:31,1060,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,756,0,0
+2018/08/13 14:03:31,1060,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,756,-1,0
+2018/08/13 14:03:31,1153,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,717,0,0
+2018/08/13 14:03:31,1153,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,717,1,0
+2018/08/13 14:03:32,1310,53546,200,OK,Thread Group 1-9,text,true,,527129,14951,1,1,935,0,0
+2018/08/13 14:03:32,1310,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527129,14951,1,1,935,0,0
+2018/08/13 14:03:33,1049,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,1,1,742,0,0
+2018/08/13 14:03:33,1049,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,1,1,742,0,0
+2018/08/13 14:03:35,1126,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,2,2,826,0,46
+2018/08/13 14:03:35,1126,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,2,2,826,1,46
+2018/08/13 14:03:36,955,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,2,2,773,0,0
+2018/08/13 14:03:36,955,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,2,2,773,1,0
+2018/08/13 14:03:34,2780,53546,200,OK,Thread Group 1-9,text,true,,527129,14951,2,2,743,0,0
+2018/08/13 14:03:34,2780,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527129,14951,2,2,743,1,0
+2018/08/13 14:03:37,879,53546,200,OK,Thread Group 1-10,text,true,,527129,14951,2,2,709,0,0
+2018/08/13 14:03:37,879,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527129,14951,2,2,709,0,0
+2018/08/13 14:03:37,890,53546,200,OK,Thread Group 1-9,text,true,,527152,14951,2,2,691,0,0
+2018/08/13 14:03:37,890,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527152,14951,2,2,691,1,0
+2018/08/13 14:03:38,909,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,2,2,705,0,0
+2018/08/13 14:03:38,909,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,2,2,705,0,0
+2018/08/13 14:03:38,883,53546,200,OK,Thread Group 1-9,text,true,,527129,14951,2,2,699,0,0
+2018/08/13 14:03:38,883,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527129,14951,2,2,699,0,0
+2018/08/13 14:03:38,996,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,2,2,762,0,0
+2018/08/13 14:03:38,996,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,2,2,762,0,0
+2018/08/13 14:03:38,978,53546,200,OK,Thread Group 1-9,text,true,,527129,14951,2,2,736,0,0
+2018/08/13 14:03:38,978,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527129,14951,2,2,736,1,0
+2018/08/13 14:03:39,941,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,2,2,760,0,0
+2018/08/13 14:03:39,941,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,2,2,760,1,0
+2018/08/13 14:03:39,945,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,757,0,0
+2018/08/13 14:03:39,945,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,757,0,0
+2018/08/13 14:03:40,1737,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,1,1,1542,0,0
+2018/08/13 14:03:40,1737,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,1,1,1542,1,0
+2018/08/13 14:03:42,895,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,1,1,713,0,0
+2018/08/13 14:03:42,895,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,1,1,713,0,0
+2018/08/13 14:03:43,999,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,1,1,810,0,0
+2018/08/13 14:03:43,999,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,1,1,810,0,0
+2018/08/13 14:03:44,1078,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,1,1,875,0,0
+2018/08/13 14:03:44,1078,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,1,1,875,1,0
+2018/08/13 14:03:45,74,Send Start Of Experiment to Controller,404,Not Found,tearDown Thread Group 2-1,,false,,99,405,1,2,74,0,39
+2018/08/13 14:03:45,74,Send Start Of Experiment to Controller,404,Not Found,Pre Experiment Thread Grouo 1-1,,false,,99,407,1,2,74,0,39
+2018/08/13 14:04:53,2027,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,1,1,809,0,57
+2018/08/13 14:04:53,2027,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,1,1,809,43,57
+2018/08/13 14:04:55,913,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,1,1,729,0,0
+2018/08/13 14:04:55,913,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,1,1,729,1,0
+2018/08/13 14:04:56,1001,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,1,1,803,0,0
+2018/08/13 14:04:56,1001,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,1,1,803,3,0
+2018/08/13 14:04:57,1019,53546,200,OK,Thread Group 1-1,text,true,,527335,14951,1,1,826,0,0
+2018/08/13 14:04:57,1019,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527335,14951,1,1,826,0,0
+2018/08/13 14:04:58,1042,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,2,2,840,0,0
+2018/08/13 14:04:58,1042,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,2,2,840,0,0
+2018/08/13 14:04:59,1028,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,2,2,798,0,12
+2018/08/13 14:04:59,1028,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,2,2,798,5,12
+2018/08/13 14:04:59,984,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,2,2,769,0,0
+2018/08/13 14:04:59,984,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,2,2,769,1,0
+2018/08/13 14:05:00,1126,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,2,2,923,0,0
+2018/08/13 14:05:00,1123,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,2,2,906,0,0
+2018/08/13 14:05:00,1126,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,2,2,923,2,0
+2018/08/13 14:05:00,1123,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,2,2,906,1,0
+2018/08/13 14:05:01,948,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,2,2,733,0,0
+2018/08/13 14:05:01,948,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,2,2,733,2,0
+2018/08/13 14:05:01,1135,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,2,2,754,0,0
+2018/08/13 14:05:01,1135,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,2,2,754,1,0
+2018/08/13 14:05:02,943,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,2,2,748,0,0
+2018/08/13 14:05:02,943,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,2,2,748,0,0
+2018/08/13 14:05:02,1309,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,2,2,816,0,0
+2018/08/13 14:05:02,1309,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,2,2,816,2,0
+2018/08/13 14:05:03,1139,53546,200,OK,Thread Group 1-1,text,true,,527153,14951,2,2,728,0,0
+2018/08/13 14:05:03,1139,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,527153,14951,2,2,728,2,0
+2018/08/13 14:05:03,1088,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,1,1,885,0,0
+2018/08/13 14:05:03,1088,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,1,1,885,1,0
+2018/08/13 14:05:04,926,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,2,2,733,0,0
+2018/08/13 14:05:04,926,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,2,2,733,0,0
+2018/08/13 14:05:05,947,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,2,2,742,0,13
+2018/08/13 14:05:05,947,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,2,2,742,1,13
+2018/08/13 14:05:05,1127,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,2,2,723,0,0
+2018/08/13 14:05:05,1127,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,2,2,723,1,0
+2018/08/13 14:05:06,959,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,2,2,773,0,0
+2018/08/13 14:05:06,959,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,2,2,773,1,0
+2018/08/13 14:05:06,932,53546,200,OK,Thread Group 1-2,text,true,,527129,14951,2,2,727,0,12
+2018/08/13 14:05:06,932,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527129,14951,2,2,727,1,12
+2018/08/13 14:05:07,984,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,2,2,810,0,0
+2018/08/13 14:05:07,984,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,2,2,810,1,0
+2018/08/13 14:05:07,972,53546,200,OK,Thread Group 1-2,text,true,,527129,14951,2,2,799,0,0
+2018/08/13 14:05:07,972,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527129,14951,2,2,799,1,0
+2018/08/13 14:05:08,862,53546,200,OK,Thread Group 1-3,text,true,,527129,14951,2,2,717,0,0
+2018/08/13 14:05:08,862,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527129,14951,2,2,717,0,0
+2018/08/13 14:05:08,897,53546,200,OK,Thread Group 1-2,text,true,,527153,14951,2,2,765,0,0
+2018/08/13 14:05:08,897,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,527153,14951,2,2,765,1,0
+2018/08/13 14:05:09,891,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,1,1,705,0,0
+2018/08/13 14:05:09,891,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,1,1,705,1,0
+2018/08/13 14:05:10,875,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,1,1,686,0,0
+2018/08/13 14:05:10,875,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,1,1,686,0,0
+2018/08/13 14:05:10,1035,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,2,2,852,0,0
+2018/08/13 14:05:10,1035,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,2,2,852,2,0
+2018/08/13 14:05:11,962,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,2,2,766,0,13
+2018/08/13 14:05:11,962,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,2,2,766,2,13
+2018/08/13 14:05:11,888,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,2,2,708,0,0
+2018/08/13 14:05:11,888,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,2,2,708,1,0
+2018/08/13 14:05:12,906,53546,200,OK,Thread Group 1-4,text,true,,527129,14951,2,2,735,0,0
+2018/08/13 14:05:12,906,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527129,14951,2,2,735,1,0
+2018/08/13 14:05:12,906,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,2,2,725,0,0
+2018/08/13 14:05:12,906,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,2,2,725,0,0
+2018/08/13 14:05:13,1000,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,2,2,849,0,0
+2018/08/13 14:05:13,1000,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,2,2,849,1,0
+2018/08/13 14:05:13,948,53546,200,OK,Thread Group 1-3,text,true,,527153,14951,2,2,684,0,0
+2018/08/13 14:05:13,948,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,527153,14951,2,2,684,2,0
+2018/08/13 14:05:14,884,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,1,1,689,0,0
+2018/08/13 14:05:14,884,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,1,1,689,0,0
+2018/08/13 14:05:15,938,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,1,1,750,0,0
+2018/08/13 14:05:15,938,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,1,1,750,0,0
+2018/08/13 14:05:16,1031,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,1,1,733,0,0
+2018/08/13 14:05:16,1031,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,1,1,733,2,0
+2018/08/13 14:05:17,910,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,2,2,728,0,0
+2018/08/13 14:05:17,910,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,2,2,728,1,0
+2018/08/13 14:05:17,947,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,2,2,748,0,13
+2018/08/13 14:05:17,947,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,2,2,748,1,13
+2018/08/13 14:05:18,1092,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,2,2,767,0,0
+2018/08/13 14:05:18,1092,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,2,2,767,0,0
+2018/08/13 14:05:18,899,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,2,2,718,0,0
+2018/08/13 14:05:18,899,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,2,2,718,0,0
+2018/08/13 14:05:19,875,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,2,2,701,0,0
+2018/08/13 14:05:19,875,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,2,2,701,1,0
+2018/08/13 14:05:19,1369,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,2,2,722,0,0
+2018/08/13 14:05:19,1369,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,2,2,722,2,0
+2018/08/13 14:05:20,921,53546,200,OK,Thread Group 1-4,text,true,,527153,14951,2,2,730,0,0
+2018/08/13 14:05:20,921,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,527153,14951,2,2,730,1,0
+2018/08/13 14:05:20,927,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,1,1,727,0,0
+2018/08/13 14:05:20,927,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,1,1,727,1,0
+2018/08/13 14:05:21,949,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,1,1,753,0,0
+2018/08/13 14:05:21,949,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,1,1,753,1,0
+2018/08/13 14:05:22,994,53546,200,OK,Thread Group 1-5,text,true,,527129,14951,2,2,808,0,0
+2018/08/13 14:05:22,994,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527129,14951,2,2,808,0,0
+2018/08/13 14:05:23,962,53546,200,OK,Thread Group 1-5,text,true,,527311,14951,2,2,757,0,0
+2018/08/13 14:05:23,962,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527311,14951,2,2,757,2,0
+2018/08/13 14:05:23,1440,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,2,2,810,0,13
+2018/08/13 14:05:23,1440,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,2,2,810,1,13
+2018/08/13 14:05:24,943,53546,200,OK,Thread Group 1-5,text,true,,527129,14951,2,2,746,0,0
+2018/08/13 14:05:24,943,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527129,14951,2,2,746,1,0
+2018/08/13 14:05:24,926,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,2,2,742,0,0
+2018/08/13 14:05:24,926,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,2,2,742,1,0
+2018/08/13 14:05:25,877,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,2,2,705,0,0
+2018/08/13 14:05:25,877,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,2,2,705,0,0
+2018/08/13 14:05:25,1176,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,2,2,966,0,0
+2018/08/13 14:05:25,1176,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,2,2,966,1,0
+2018/08/13 14:05:26,1134,53546,200,OK,Thread Group 1-5,text,true,,527153,14951,2,2,715,0,0
+2018/08/13 14:05:26,1134,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,527153,14951,2,2,715,0,0
+2018/08/13 14:05:26,890,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,1,1,710,0,0
+2018/08/13 14:05:26,890,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,1,1,710,0,0
+2018/08/13 14:05:27,901,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,1,1,738,0,0
+2018/08/13 14:05:27,901,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,1,1,738,0,0
+2018/08/13 14:05:28,903,53546,200,OK,Thread Group 1-6,text,true,,527129,14951,2,2,719,0,0
+2018/08/13 14:05:28,903,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527129,14951,2,2,719,2,0
+2018/08/13 14:05:29,1016,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,720,0,13
+2018/08/13 14:05:29,1016,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,720,16,13
+2018/08/13 14:05:29,1331,53546,200,OK,Thread Group 1-6,text,true,,527129,14951,2,2,706,0,0
+2018/08/13 14:05:29,1331,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527129,14951,2,2,706,1,0
+2018/08/13 14:05:30,925,53546,200,OK,Thread Group 1-7,text,true,,527129,14951,2,2,742,0,0
+2018/08/13 14:05:30,925,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527129,14951,2,2,742,1,0
+2018/08/13 14:05:31,914,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,2,2,704,0,0
+2018/08/13 14:05:31,914,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,2,2,704,0,0
+2018/08/13 14:05:31,882,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,700,0,0
+2018/08/13 14:05:31,882,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,700,2,0
+2018/08/13 14:05:31,895,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,2,2,722,0,0
+2018/08/13 14:05:31,895,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,2,2,722,1,0
+2018/08/13 14:05:32,972,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,791,0,0
+2018/08/13 14:05:32,972,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,791,1,0
+2018/08/13 14:05:32,881,53546,200,OK,Thread Group 1-6,text,true,,527153,14951,2,2,715,0,0
+2018/08/13 14:05:32,881,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,527153,14951,2,2,715,2,0
+2018/08/13 14:05:33,902,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,1,1,715,0,0
+2018/08/13 14:05:33,902,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,1,1,715,1,0
+2018/08/13 14:05:34,892,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,1,1,715,0,0
+2018/08/13 14:05:34,892,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,1,1,715,2,0
+2018/08/13 14:05:35,916,53546,200,OK,Thread Group 1-7,text,true,,527335,14951,2,2,732,0,0
+2018/08/13 14:05:35,916,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527335,14951,2,2,732,1,0
+2018/08/13 14:05:35,1218,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,780,0,13
+2018/08/13 14:05:35,1218,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,780,0,13
+2018/08/13 14:05:35,905,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,717,0,0
+2018/08/13 14:05:35,905,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,717,0,0
+2018/08/13 14:05:36,950,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,772,0,0
+2018/08/13 14:05:36,950,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,772,2,0
+2018/08/13 14:05:36,935,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,760,0,0
+2018/08/13 14:05:36,935,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,760,1,0
+2018/08/13 14:05:37,904,53546,200,OK,Thread Group 1-7,text,true,,527153,14951,2,2,707,0,0
+2018/08/13 14:05:37,904,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,527153,14951,2,2,707,0,0
+2018/08/13 14:05:37,1170,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,1,1,795,0,0
+2018/08/13 14:05:37,1170,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,1,1,795,1,0
+2018/08/13 14:05:38,904,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,1,1,720,0,0
+2018/08/13 14:05:38,904,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,1,1,720,1,0
+2018/08/13 14:05:39,863,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,1,1,684,0,0
+2018/08/13 14:05:39,863,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,1,1,684,0,0
+2018/08/13 14:05:40,1018,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,839,0,0
+2018/08/13 14:05:40,1018,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,839,1,0
+2018/08/13 14:05:41,943,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,724,0,14
+2018/08/13 14:05:41,943,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,724,2,14
+2018/08/13 14:05:41,1028,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,698,0,0
+2018/08/13 14:05:41,1028,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,698,1,0
+2018/08/13 14:05:42,1102,53546,200,OK,Thread Group 1-9,text,true,,527152,14951,2,2,914,0,0
+2018/08/13 14:05:42,1102,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527152,14951,2,2,914,1,0
+2018/08/13 14:05:42,1024,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,832,0,0
+2018/08/13 14:05:42,1024,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,832,1,0
+2018/08/13 14:05:43,973,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,792,0,0
+2018/08/13 14:05:43,973,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,792,1,0
+2018/08/13 14:05:43,1139,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,801,0,0
+2018/08/13 14:05:43,1139,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,801,0,0
+2018/08/13 14:05:44,896,53546,200,OK,Thread Group 1-8,text,true,,527153,14951,2,2,704,0,0
+2018/08/13 14:05:44,896,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,527153,14951,2,2,704,2,0
+2018/08/13 14:05:44,985,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,1,1,806,0,0
+2018/08/13 14:05:44,985,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,1,1,806,1,0
+2018/08/13 14:05:45,936,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,1,1,738,0,0
+2018/08/13 14:05:45,936,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,1,1,738,0,0
+2018/08/13 14:05:46,905,53546,200,OK,Thread Group 1-9,text,true,,527152,14951,2,2,733,0,0
+2018/08/13 14:05:46,905,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527152,14951,2,2,733,2,0
+2018/08/13 14:05:47,885,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,707,0,0
+2018/08/13 14:05:47,885,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,707,0,0
+2018/08/13 14:05:47,951,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,2,2,750,0,12
+2018/08/13 14:05:47,951,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,2,2,750,2,12
+2018/08/13 14:05:48,905,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,706,0,0
+2018/08/13 14:05:48,905,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,706,0,0
+2018/08/13 14:05:48,1251,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,2,2,856,0,0
+2018/08/13 14:05:48,1251,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,2,2,856,1,0
+2018/08/13 14:05:49,981,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,808,0,0
+2018/08/13 14:05:49,981,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,808,2,0
+2018/08/13 14:05:49,967,53546,200,OK,Thread Group 1-10,text,true,,527152,14951,2,2,776,0,0
+2018/08/13 14:05:49,967,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527152,14951,2,2,776,1,0
+2018/08/13 14:05:50,898,53546,200,OK,Thread Group 1-9,text,true,,527153,14951,2,2,726,0,0
+2018/08/13 14:05:50,898,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,527153,14951,2,2,726,0,0
+2018/08/13 14:05:50,877,53546,200,OK,Thread Group 1-10,text,true,,527152,14951,1,1,695,0,0
+2018/08/13 14:05:50,877,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527152,14951,1,1,695,0,0
+2018/08/13 14:05:51,922,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,1,1,737,0,0
+2018/08/13 14:05:51,922,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,1,1,737,1,0
+2018/08/13 14:05:52,906,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,1,1,704,0,0
+2018/08/13 14:05:52,906,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,1,1,704,0,0
+2018/08/13 14:05:53,1101,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,1,1,914,0,0
+2018/08/13 14:05:53,1101,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,1,1,914,0,0
+2018/08/13 14:05:54,1036,53546,200,OK,Thread Group 1-10,text,true,,527153,14951,1,1,851,0,0
+2018/08/13 14:05:54,1036,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527153,14951,1,1,851,1,0
+2018/08/13 14:05:55,1611,53546,200,OK,Thread Group 1-10,text,true,,527129,14951,1,1,778,0,0
+2018/08/13 14:05:55,1611,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527129,14951,1,1,778,0,0
+2018/08/13 14:05:57,986,53546,200,OK,Thread Group 1-10,text,true,,527129,14951,1,1,791,0,0
+2018/08/13 14:05:57,986,Homepage,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,527129,14951,1,1,791,1,0
+2018/08/13 14:05:58,33461,Send Start Of Experiment to Controller,200,OK,tearDown Thread Group 2-1,text,true,,386,408,1,2,33454,0,5
+2018/08/13 14:05:58,33507,Send Start Of Experiment to Controller,200,OK,Pre Experiment Thread Grouo 1-1,text,true,,390,410,1,1,33499,0,5

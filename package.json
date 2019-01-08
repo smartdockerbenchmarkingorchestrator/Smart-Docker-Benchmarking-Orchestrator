@@ -1,0 +1,27 @@
+{
+  "name": "Docker.Benchmarking.Orchestrator",
+  "version": "1.0.0",
+  "description": "http://13.80.242.88/",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@aspnet/signalr": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michael-nee/Docker.Benchmarking.Orchestrator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michael-nee/Docker.Benchmarking.Orchestrator/issues"
+  },
+  "homepage": "https://github.com/michael-nee/Docker.Benchmarking.Orchestrator#readme"
+}

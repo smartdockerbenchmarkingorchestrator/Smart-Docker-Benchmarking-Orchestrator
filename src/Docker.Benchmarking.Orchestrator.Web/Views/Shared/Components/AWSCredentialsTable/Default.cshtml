@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Docker.Benchmarking.Orchestrator.Core.Entities.AWSCredentials>
+
+<div class="table-responsive">
+    <table id="aws-credentials-table" class="table table-striped table-sm" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccessKeyId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SecretKey)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegionEndPoint)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateTimeCreated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" asp-controller="AWSCredentials">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" asp-controller="AWSCredentials">Details</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccessKeyId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SecretKey)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AWSEndPoint.DisplayName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTimeCreated)
+                    </td>
+                    <td>
+                        @(item.Active ? "Yes" : "No")
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccessKeyId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SecretKey)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegionEndPoint)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateTimeCreated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,187 @@
+﻿@page "{Id:Guid}"
+
+@inject IJsonHelper Json
+@model Docker.Benchmarking.Orchestrator.Web.Pages.AWS.EditModel
+@{
+    ViewData["Title"] = "Edit AWS Template";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/lib/code-mirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="~/lib/code-mirror/addon/hint/show-hint.css" />
+    <style type="text/css">
+        .CodeMirror {
+            border: 1px solid #eee;
+        }
+    </style>
+
+}
+
+<h1 class="h2">@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstanceName" class="control-label"></label>
+                <input asp-for="InstanceName" class="form-control" />
+                <span asp-validation-for="InstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vCPUs" class="control-label"></label>
+                <input asp-for="vCPUs" class="form-control" />
+                <span asp-validation-for="vCPUs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Memory" class="control-label"></label>
+                <input asp-for="Memory" class="form-control" />
+                <span asp-validation-for="Memory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiskSize" class="control-label"></label>
+                <input asp-for="DiskSize" class="form-control" />
+                <span asp-validation-for="DiskSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeploymentType" class="control-label"></label>
+                <select asp-for="DeploymentType" class="form-control js-example-basic-single input-lg" asp-items="Html.GetEnumSelectList<Docker.Benchmarking.Orchestrator.Core.Enums.AWSDeploymentType>()">
+                    <option selected="selected" value="">Please select an application type</option>
+                </select>
+                <span asp-validation-for="DeploymentType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PricePerHour" class="control-label"></label>
+                <input asp-for="PricePerHour" class="form-control" />
+                <span asp-validation-for="PricePerHour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VMSizeType" class="control-label"></label>
+                <select asp-for="VMSizeType" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList(typeof (Docker.Benchmarking.Orchestrator.Core.Enums.VMSize))">
+                    <option value="">Select VM Size</option>
+                </select>
+                <span asp-validation-for="VMSizeType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Template" class="control-label"></label>
+                <input asp-for="Template" class="form-control" />
+                <span asp-validation-for="Template" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Credential" class="control-label"></label>
+                <select asp-for="Credential" asp-items="@Model.Credentials" class="form-control js-example-basic-single input-lg">
+                    <option selected="selected" value="">Please select the region associated with the Key/Secret pair</option>
+                </select>
+                <span asp-validation-for="Credential" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <table id="parameters-table" class="table table-striped table-bordered" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Parameters">
+                        <tr>
+                            <td><input data-bind='attr: { value: key, name: "Parameters["+$index()+"].Key"}' class="form-control" required /></td>
+                            <td><input data-bind='attr: { value: value, name: "Parameters["+$index()+"].Value"}' class="form-control" required /></td>
+                            <td><a href="#" data-bind="click: $root.removeItem" class="btn btn-danger">Remove Parameter</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group pull-right">
+                <button data-bind="click: addItem.bind($data, null)" class="btn btn-danger">Add Parameter</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-lg" />
+                @*<input type="submit" value="Update" asp-page-handler="Update" class="btn btn-primary btn-lg @(Model.HasValidated ? "" : "d-none")" />*@
+
+                <input asp-for="HasValidated" type="hidden" />
+                <input asp-for="Capabilities" type="hidden" />
+                <input asp-for="Id" type="hidden" />
+                <input asp-for="DateTimeCreated" type="hidden" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.min.js"></script>
+    <script src="~/lib/code-mirror/lib/codemirror.js"></script>
+    <script src="~/lib/code-mirror/addon/edit/matchbrackets.js"></script>
+    <script src="~/lib/code-mirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/code-mirror/addon/comment/comment.js"></script>
+    <script src="~/js/json-ld.js"></script>
+    <script>
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("Template"), {
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            mode: "application/ld+json",
+            lineWrapping: true
+        });
+
+        $(function () {
+            var items = @Html.Raw(Json.Serialize(Model.Parameters));
+            ko.applyBindings(viewModel);
+            //viewModel.addItem();
+
+            $.each(items, function (i, item) {
+                //console.log(item);
+                var parameterItem = new Parameter(item);
+                console.log(parameterItem);
+                viewModel.Parameters.push(parameterItem);
+            });
+        });
+
+        function Parameter(item) {
+                var self = this;
+                self.key = item.key;
+                self.value = item.value;
+            }
+
+            var viewModel = {
+                Parameters: ko.observableArray(),
+                addItem: function (select) {
+                    console.log(select);
+                    var preItem = @Html.Raw(Json.Serialize(new Docker.Benchmarking.Orchestrator.Web.ViewModels.AWS.AWSParameterViewModel()));
+                    if (select == null) {
+                        var item = new Parameter(preItem);
+                        return viewModel.Parameters.push(item);
+                    }
+                },
+                removeItem: function (item) { viewModel.Parameters.remove(item) }
+            };
+    </script>
+
+}
+
+

@@ -1,0 +1,608 @@
+﻿@using Docker.Benchmarking.Orchestrator.Core.Interfaces
+@model Docker.Benchmarking.Orchestrator.Web.ViewModels.StartBenchmarkExperimentViewModel
+@inject ICurrentHostSettings HostingSettings
+@{
+    ViewData["Title"] = "Details for Benchmark Test: " + Model.Name;
+}
+
+@section Styles {
+    @*Refresh page every 5 minutes to check progress*@
+    <meta http-equiv="refresh" content="300">
+}
+
+<h1 class="h2">Details for Benchmark Experiment</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <h4 class="h6">Benchmark/Application Details:</h4>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Id:</h6>
+                </div>
+                <span>@Model.Id</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Name:</h6>
+                </div>
+                <span>@Model.Name</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Description:</h6>
+                </div>
+                <span>@Model.Description</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Benchmarking Reference:</h6>
+                </div>
+                <span>@Model.BenchmarkingName</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Experiment Reference</h6>
+                </div>
+                <span>@Model.ExperimentReference</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Application:</h6>
+                </div>
+                <span>
+                    <a href="@Url.Action("Details", "Application", new { id = Model.Application.Id })" data-featherlight-iframe-allowfullscreen="true"
+                       data-featherlight-iframe-height="640" data-featherlight-iframe-width="480" data-featherlight="iframe">@Model.Application.Name</a>
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Host:</h6>
+                </div>
+                <span>
+                    <a href="@Url.Action("HostDetails", "Docker", new { id = Model.Host.Id })" data-featherlight="iframe">@Model.Host.Name</a>
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Host Cloud Provider:</h6>
+                </div>
+                <span>
+                    @(Html.DisplayFor(model => model.Host.CloudProvider))
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Host Location:</h6>
+                </div>
+                <span>
+                    @(Html.DisplayFor(model => model.Host.Location))
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Benchmark Host:</h6>
+                </div>
+                <span>
+                    <a href="@Url.Action("HostDetails", "Docker", new { id = Model.BenchmarkHost.Id })" data-featherlight-iframe-allowfullscreen="true" data-featherlight="iframe">@Model.BenchmarkHost.Name</a>
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Benchmark Host Cloud Provider:</h6>
+                </div>
+                <span>
+                    @(Html.DisplayFor(model => model.BenchmarkHost.CloudProvider))
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Benchmark Host Location:</h6>
+                </div>
+                <span>
+                    @(Html.DisplayFor(model => model.BenchmarkHost.Location))
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Capture Container Metrics:</h6>
+                </div>
+                <span>@(Model.CaptureContainerMetrics ? "Yes" : "No")</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Application Type:</h6>
+                </div>
+                <span>
+                    @Html.DisplayFor(modelItem => modelItem.Application.ApplicationType)
+                </span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Hostname/IP Address:</h6>
+                </div>
+                <span>@Model.Host.HostName</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">vCPUs:</h6>
+                </div>
+                <span>@Model.Host.vCPU</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Memory Size in MB (GB):</h6>
+                </div>
+                <span>
+                    @Model.Host.Memory (@(Model.Host.Memory / 1024))
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Jmeter Test File:</h6>
+                </div>
+                <span>
+                    <a href="@Url.Action("TestFileForBenchmarkExperiment", "BenchmarkExperiment", new { id = Model.Id })">@Model.TestFile.Name</a>
+                </span>
+            </li>
+        </ul>
+        <hr />
+        <div>
+            <h4 class="h6">Testplan Variables</h4>
+            <table width="100%" class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <td>Variable Name</td>
+                        <td>Variable Value</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var variable in Model.Variables)
+                    {
+                        <tr>
+                            <td>@variable.Name</td>
+                            <td>@variable.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            @if (Model.ShowCreateAzureResourcesApplication || Model.ShowCreateAWSResourcesApplication)
+            {
+                <button class="btn btn-default" id="btn-create-azure" data-id="@Model.Id">Create Azure/AWS Application/Benchmarking Resources</button>
+                <br />
+            }
+
+            @if (Model.ShowStartBenchmarking)
+            {
+                if (HostingSettings.CurrentHostUri == null)
+                {
+                    <label>Please enter this containers hostname and port to start tests</label>
+                    <a href="/" class="btn btn-primary">Go to Dashboard</a><br />
+                }
+                else
+                {
+                    <button class="btn btn-primary" id="btn-start-test" data-id="@Model.Id">Start Benchmarking</button>
+
+                }
+            }
+            @if (Model.Completed)
+            {
+                <h6>Benchmark Results:</h6>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="@Url.Action("Results", "BenchmarkExperiment", new { id = Model.Id })" data-featherlight="iframe" data-featherlight-iframe-height="1920" data-featherlight-iframe-width="1080" id="view-results" class="btn btn-primary @(!Model.ShowResourceResults() ? "d-none" : "")">Container Results</a>
+                    <a href="@Url.Action("BenchmarkServerResults", "BenchmarkExperiment", new { id = Model.Id })" data-featherlight="iframe" data-featherlight-iframe-height="1920" data-featherlight-iframe-width="1080" id="view-results-webserver" class="btn btn-info @(!Model.ShowBenchmarkResults() ? "d-none" : "")">Web Server Results</a>
+                    <button id="btn-recalculate" class="btn btn-danger">Recalculate Results</button>
+
+                </div>
+            }
+        </div>
+        @if (Model.Completed)
+        {
+            <hr />
+            <h4 class="h6">Benchmark Statistics:</h4>
+
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Started At:</h6>
+                    </div>
+                    <span>
+                        @Model.StartedAt
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Completed At:</h6>
+                    </div>
+                    <span>
+                        @Model.CompletedAt
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Benchmark Length:</h6>
+                    </div>
+                    <span>
+                        @Model.BenchmarkLength
+                    </span>
+                </li>
+            </ul>
+            <hr />
+            <h4 class="h6">Benchmark Container Metrics:</h4>
+
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">CPU Percentage Mean (Average) (%):</h6>
+                    </div>
+                    <span>
+                        @Model.CPUPercentageMean
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            CPU Percentage Range (%):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.CPUPercentageRange
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            CPU Percentage Highest (%):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.CPUPercentageHighest
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            CPU Percentage Lowest (%):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.CPUPercentageLowest
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            CPU Percentage Standard Deviation:
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.CPUStandDeviation
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Memory Percentage Mean (Average) (%):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.MemoryPercentageMean
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Memory Percentage Range (%):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.MemoryPercentageRange
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Memory Percentage Highest (%):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.MemoryPercentageHighest
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Memory Percentage Lowest (%):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.MemoryPercentageLowest
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Memory Percentage Standard Deviation (%):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.MemoryStandDeviation
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Network Input Total (bytes):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.NetworkInputTotalBytes
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Network Output Total (bytes):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.NetworkOutputTotalBytes
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Block Input Total (bytes):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.BlockInputTotal
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">
+                            Block Output Total (bytes):
+                        </h6>
+                    </div>
+                    <span>
+                        @Model.BlockOutputTotal
+                    </span>
+                </li>
+            </ul>
+            <hr />
+
+            <h4 class="h6">Benchmark Web server Metrics:</h4>
+
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Throughput (requests per second):</h6>
+                    </div>
+                    <span>
+                        @Model.ThroughputPerSecond
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Average Response Time (miliseconds):</h6>
+                    </div>
+                    <span>
+                        @Model.AverageResponseTime
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Maximum Response Time (miliseconds):</h6>
+                    </div>
+                    <span>
+                        @Model.MaxResponseTime
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Minimum Response Time (miliseconds):</h6>
+                    </div>
+                    <span>
+                        @Model.MinResponseTime
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Number of Requests:</h6>
+                    </div>
+                    <span>
+                        @Model.NumberOfSamples
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Number of Errors:</h6>
+                    </div>
+                    <span>
+                        @Model.NumberOfErrors
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Average Latency (milliseconds):</h6>
+                    </div>
+                    <span>
+                        @Model.AverageLatecy
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Maximum Latency (milliseconds):</h6>
+                    </div>
+                    <span>
+                        @Model.MaxLatency
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Minimum Latency (milliseconds):</h6>
+                    </div>
+                    <span>
+                        @Model.MinLatency
+                    </span>
+                </li>
+            </ul>
+            <hr />
+
+            <h4 class="h6">Apdex Ratings:</h4>
+
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Apdex T (seconds):</h6>
+                    </div>
+                    <span>
+                        @Model.ApdexTSeconds
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Apdex Satisfied Count:</h6>
+                    </div>
+                    <span>
+                        @Model.ApdexSatisfied
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Apdex Tolerating Count:</h6>
+                    </div>
+                    <span>
+                        @Model.ApdexTolerating
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Apdex Frustrated Count:</h6>
+                    </div>
+                    <span>
+                        @Model.ApdexFustrated
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Apdex Score:</h6>
+                    </div>
+                    <span>
+                        @Model.ApdexScore
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Apdex Rating:</h6>
+                    </div>
+                    <span>
+                        @Model.ApdexRating
+                    </span>
+                </li>
+            </ul>
+        }
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $('#btn-recalculate').click(function () {
+            $.ajax({
+                url: "@Url.Action("RecalculateMetrics", "BenchmarkExperiment", new { id = Model.Id })",
+                method: "POST"
+                })
+                .done(function (data) {
+                    location.reload();
+                })
+                .fail(function (xhr) {
+                    console.log('error', xhr);
+                });
+        });
+
+        $("#btn-start-test").click(function () {
+            var appId = $(this).data('id');
+            var btn = $(this);
+
+            appId = JSON.stringify(appId);
+            btn.addClass('disabled');
+            var button = this;
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("StartApplicationBenchmark", "BenchmarkExperiment", new { benchmarkExperimentId = Model.Id })",
+                //data: { 'applicationTestId ': appId },
+                contentType: "application/json; charset=utf-8",
+                async: true,
+                dataType: "json",
+                success: function (response) {
+                    if (response) {
+
+                        $("#btn-start-test").addClass('d-none');
+
+                        toastr.success('Benchmarking Experiment Successfully Started.', 'Success');
+
+                        checkIfExperimentCompleted();
+
+                        btn.hide();
+                    }
+                },
+                failure: function (response) {
+                    toastr.error(response.responseText, 'Error');
+                    console.log(response.responseText);
+                },
+                error: function (response) {
+                    toastr.error(response.responseText, 'Error');
+                    console.log(response.responseText);
+                }
+            });
+            toastr.success('Please await 2nd confirmation alert for actual start of benchmarking experiment.', 'Starting up containers');
+        });
+
+        $('#btn-create-azure').click(function () {
+
+            var element = this;
+
+            var azureHostId = $(element).data("id");
+
+        $.ajax({
+                url: "@Url.Action("CreateAzureResources", "BenchmarkExperiment", new { id = Model.Id })",
+                method: "POST"
+                })
+                .done(function (data) {
+                    toastr.success('Creating azure/aws resources for application host.  This takes 5-10 minutes.  Refresh page back then.', 'Started');
+                })
+                .fail(function (xhr) {
+                    console.log('error', xhr);
+                });
+        });
+
+        function checkIfExperimentCompleted() {
+            $.ajax({
+                url: "@Url.Action("HasExperimentCompleted", "Results", new { id = Model.Id })",
+                method: "GET"
+                })
+                .done(function (data) {
+                    if (data) {
+                        $('.modal').modal('hide');
+                        toastr.success('Benchmark Experimented Completed. Click button to see the results.', 'Completed');
+                        $("#view-results").removeClass('d-none');
+                    }
+                    else {
+                        console.log("Checking.");
+                        setTimeout(function () { checkIfExperimentCompleted }, 10000);
+                    }
+                })
+                .fail(function (xhr) {
+                    console.log('error', xhr);
+                });
+        }
+
+    </script>
+}

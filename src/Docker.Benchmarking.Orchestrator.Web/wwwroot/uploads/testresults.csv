@@ -1,0 +1,22 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+2018/07/27 15:51:01,61,53546,200,OK,Thread Group 1-1,text,true,,398,419,2,2,60,0,38
+2018/07/27 15:51:01,5,53546,200,OK,Thread Group 1-2,text,true,,398,419,2,2,5,0,1
+2018/07/27 15:51:01,5,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-2,,true,,398,419,2,2,5,6,1
+2018/07/27 15:51:01,61,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,398,419,2,2,60,53,38
+2018/07/27 15:51:01,4,53546,200,OK,Thread Group 1-3,text,true,,398,419,1,1,4,0,1
+2018/07/27 15:51:01,4,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-3,,true,,398,419,1,1,4,2,1
+2018/07/27 15:51:01,4,53546,200,OK,Thread Group 1-4,text,true,,398,419,1,1,4,0,1
+2018/07/27 15:51:01,4,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-4,,true,,398,419,1,1,4,2,1
+2018/07/27 15:51:02,4,53546,200,OK,Thread Group 1-5,text,true,,398,419,1,1,4,0,1
+2018/07/27 15:51:02,4,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-5,,true,,398,419,1,1,4,2,1
+2018/07/27 15:51:02,4,53546,200,OK,Thread Group 1-6,text,true,,398,419,1,1,4,0,1
+2018/07/27 15:51:02,4,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-6,,true,,398,419,1,1,4,1,1
+2018/07/27 15:51:02,4,53546,200,OK,Thread Group 1-7,text,true,,398,419,1,1,4,0,1
+2018/07/27 15:51:02,4,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-7,,true,,398,419,1,1,4,1,1
+2018/07/27 15:51:02,4,53546,200,OK,Thread Group 1-8,text,true,,398,419,1,1,4,0,1
+2018/07/27 15:51:02,4,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-8,,true,,398,419,1,1,4,0,1
+2018/07/27 15:51:02,5,53546,200,OK,Thread Group 1-9,text,true,,398,419,1,1,4,0,1
+2018/07/27 15:51:02,5,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-9,,true,,398,419,1,1,4,1,1
+2018/07/27 15:51:02,10,53546,200,OK,Thread Group 1-10,text,true,,398,419,1,1,9,0,2
+2018/07/27 15:51:02,10,Test,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-10,,true,,398,419,1,1,9,4,2
+2018/07/27 15:51:02,137,HTTP Request,200,OK,tearDown Thread Group 1-1,text,true,,473,3005,1,1,127,0,29

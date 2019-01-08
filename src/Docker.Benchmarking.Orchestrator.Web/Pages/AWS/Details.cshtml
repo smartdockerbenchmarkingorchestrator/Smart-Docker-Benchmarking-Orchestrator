@@ -1,0 +1,88 @@
+﻿@page
+@model Docker.Benchmarking.Orchestrator.Web.Pages.AWS.DetailsModel
+
+@{
+    ViewData["Title"] = "Details for AWS Cloudformation Template";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+        <dl class="dl-horizontal">
+            @*<dt>
+            @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.Template)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AWSCloudFormationTemplate.Template)
+        </dd>*@
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.vCPUs)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.vCPUs)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.InstanceName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.InstanceName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.Memory)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.Memory)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.DiskSize)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.DiskSize)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.PricePerHour)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.PricePerHour)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.DeploymentType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.DeploymentType)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.DateTimeCreated)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.DateTimeCreated)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.Active)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.Active)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AWSCloudFormationTemplate.VMSizeType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AWSCloudFormationTemplate.VMSizeType)
+            </dd>
+        </dl>
+    </div>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AWSCloudFormationTemplate.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,119 @@
+﻿@model Docker.Benchmarking.Orchestrator.Web.ViewModels.TestAzureResourcesViewModel
+
+@{
+    ViewData["Title"] = "Test Azure Resources Deployment Templates";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/lib/code-mirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="~/lib/code-mirror/addon/hint/show-hint.css" />
+    <style type="text/css">
+        .CodeMirror {
+            border: 1px solid #eee;
+        }
+    </style>
+
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Test" method="post" asp-controller="Azure">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ResourceName" class="control-label"></label>
+                <input asp-for="ResourceName" class="form-control" readonly />
+                <span asp-validation-for="ResourceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AzureRegion" class="control-label"></label>
+                <select asp-for="AzureRegion" class="form-control js-example-basic-single" asp-items="Model.AzureRegions">
+                    <option selected="selected" value="">Please select an azure region</option>
+                </select>
+                <span asp-validation-for="AzureRegion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeploymentJson" class="control-label"></label>
+                <input asp-for="DeploymentJson" class="form-control" />
+                <span asp-validation-for="DeploymentJson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParametersJson" class="control-label"></label>
+                <input asp-for="ParametersJson" class="form-control" />
+                <span asp-validation-for="ParametersJson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IpAddress" class="control-label"></label>
+                <input asp-for="IpAddress" class="form-control" readonly />
+                <span asp-validation-for="IpAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CredentialsId" class="control-label"></label>
+                <select asp-for="CredentialsId" class="form-control js-example-basic-single" asp-items="Model.Credentials">
+                    <option selected="selected" value="">Please select an azure location</option>
+                </select>
+                <span asp-validation-for="CredentialsId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DockerImage" class="control-label"></label>
+                <select asp-for="DockerImage" class="form-control js-example-basic-single" asp-items="Model.DockerImages">
+                    <option selected="selected" value="">Please select a docker image to deploy (optional)</option>
+                </select>
+                <span asp-validation-for="CredentialsId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" id="btn-submit" class="btn btn-primary btn-lg @(!string.IsNullOrEmpty(Model.IpAddress) ? "d-none" : "")" />
+                <button id="btn-delete" class="btn btn-success btn-lg @(string.IsNullOrEmpty(Model.IpAddress) ? "d-none" : "")"></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/lib/code-mirror/lib/codemirror.js"></script>
+    <script src="~/lib/code-mirror/addon/edit/matchbrackets.js"></script>
+    <script src="~/lib/code-mirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/code-mirror/addon/comment/comment.js"></script>
+    <script src="~/js/json-ld.js"></script>
+    <script>
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("DeploymentJson"), {
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            mode: "application/ld+json",
+            lineWrapping: true
+        });
+
+        var editor1 = CodeMirror.fromTextArea(document.getElementById("ParametersJson"), {
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            mode: "application/ld+json",
+            lineWrapping: true
+        });
+
+        $('#btn-delete').click(function () {
+
+            var resourceName = $('#resourcename').val();
+
+            $.ajax({
+                url: "@Url.Action("DeleteResources", "Azure")",
+                method: "POST",
+                data: {
+                    "resourceName": resourceName
+                }
+            })
+                .done(function (data) {
+
+                })
+                .fail(function (xhr) {
+                    console.log('error', xhr);
+                });
+        });
+
+    </script>
+}

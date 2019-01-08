@@ -1,0 +1,78 @@
+﻿<environment include="Development">
+    <script src="~/lib/jquery-ajax/jquery.unobtrusive-ajax.js"></script>
+</environment>
+<environment exclude="Development">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.unobtrusive-ajax/3.2.5/jquery.unobtrusive-ajax.min.js"
+            asp-fallback-src="~/lib/jquery-ajax/jquery.unobtrusive-ajax.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive"
+            crossorigin="anonymous"
+            integrity="sha384-ifv0TYDWxBHzvAk2Z0n8R434FL1Rlv/Av18DXE43N/1rvHyOG4izKst0f2iSLdds">
+    </script>
+</environment>
+<script>
+    var results = $("#Results");
+    var onBegin = function () {
+        results.html("<img src=\"/images/ajax-loader.gif\" alt=\"Loading\" />");
+    };
+
+    var onComplete = function () {
+        results.html("");
+    };
+
+    var onSuccess = function (context) 
+    {
+        console.log(context);
+
+        iziToast.success({
+            title: 'Success',
+            message: context.id
+        });
+
+        $("form").find('.field-validation-error span').html('');
+        $('form').find('.validation-summary-errors').html('');
+        $('form')[0].reset();
+        $('form:first *:input[type!=hidden]:first').focus();
+    };
+
+    var onFailed = function (context) {
+        console.log(context);
+
+        iziToast.error({
+            title: 'Error',
+            message: context
+        });
+    };
+
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+    });
+
+    $('#ajaxForm').on('submit', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        var $form = $(this);
+        if ($form.valid()) {
+            var sendForm = $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    //'Content-Type': 'application/json',
+                    'RequestVerificationToken': $form.find("input[name='__RequestVerificationToken']").val()
+                },
+                url: $("#ajaxForm").attr('action'),
+                type: 'POST',
+                dataType: "json",
+                data: $('#ajaxForm').serializeArray(),
+                async: true
+            });
+
+            sendForm.done(function (data) {
+                onSuccess(data);
+            });
+
+            sendForm.fail(function (data) {
+                onFailed(data);
+            });
+        }
+    });
+</script>

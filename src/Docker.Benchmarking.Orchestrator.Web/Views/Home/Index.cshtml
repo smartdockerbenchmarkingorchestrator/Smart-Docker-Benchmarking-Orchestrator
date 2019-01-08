@@ -1,0 +1,95 @@
+﻿@using Microsoft.Extensions.Options
+@using Docker.Benchmarking.Orchestrator.Infrastrcture
+@using Docker.Benchmarking.Orchestrator.Core.Interfaces
+
+@inject ICurrentHostSettings StatsService
+
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+@section Styles {
+    <style type="text/css">
+        /* Chart.js */
+        @@-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @@keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+}
+
+<h1 class="h2">Welcome</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        @if ((bool)ViewData["RequiresHostSettings"] == true)
+        {
+            <p>Requires Host Settings to be entered.  Set these to the current IP Address and Port if running in new container.</p>
+
+            <form asp-controller="Home" asp-action="UpdateHostSettings" method="post">
+                <div class="form-group">
+                    <label class="control-label">Current Host:</label>
+                    <input name="CurrentHost" id="CurrentHost" type="text" placeholder="8.8.8.8" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Current Port:</label>
+                    <input name="PortNumber" id="PortNumber" type="number" maxlength="5" min="2" value="80" placeholder="80" class="form-control" required />
+                </div>
+
+                <input type="submit" class="btn btn-primary btn-lg" value="Submit" />
+            </form>
+        }
+        else
+        {
+            <dl>
+                <dd>
+                    HostName:
+                </dd>
+                <dt>
+                    @StatsService.CurrentHost
+                </dt>
+                <dd>
+                    Port Number:
+                </dd>
+                <dt>
+                    @StatsService.CurrentPort
+                </dt>
+            </dl>
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        $(function () {
+
+            $('#PortNumber').val(location.port);
+            $("#CurrentHost").val(location.hostname);
+        })
+
+    </script>
+
+}

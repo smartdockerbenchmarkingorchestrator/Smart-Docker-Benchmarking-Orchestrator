@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Docker.Benchmarking.Orchestrator.Web.ViewModels.ApplicationDetailsViewModel>
+
+@{
+    ViewData["Title"] = "Applications List";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+
+<div class="table-responsive">
+    <table id="applications-list" class="table table-striped table-sm" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    Application Type
+                </th>
+                <th>
+                    # experiments created
+                </th>
+                <th>
+                    # experiments completed
+                </th>
+                <th>
+                    # experiments to complete
+                </th>
+                <th>
+                    Created At (UTC)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationType)
+                </td>
+                <td>
+                    @item.Benchmarks.Count()
+                </td>
+                <td>
+                    @item.Benchmarks.Count(c => c.Completed)
+                </td>
+                <td>
+                    @item.Benchmarks.Count(c => !c.Completed)
+                </td>
+                <td>
+                    @item.DateTimeCreated
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })<br />
+                    <a href="@Url.Action("Details", "Application", new { id = item.Id })" data-featherlight="iframe" data-featherlight-iframe-height="1920" data-featherlight-iframe-width="1080">Details</a><br />
+                    <a href="@Url.Action("ResultsComparison","BenchmarkExperiment", new { id = item.Id })" data-featherlight="iframe" data-featherlight-iframe-height="1920" data-featherlight-iframe-width="1080">Compare Results</a>
+                    @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $('#applications-list').DataTable();
+            });
+        </script>
+    }

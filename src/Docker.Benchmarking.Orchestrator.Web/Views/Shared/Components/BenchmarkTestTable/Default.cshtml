@@ -1,0 +1,179 @@
+﻿@model IEnumerable<Docker.Benchmarking.Orchestrator.Web.ViewModels.BenchmarkTestViewModel>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm benchmark-results" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Started)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Completed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompletedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeToComplete)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberOfContainerMetricRecords)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vCPU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPUPercentageMean)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPUPercentageRange)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPUPercentageHighest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPUPercentageLowest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Memory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentageMean)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentageRange)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentageHighest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentageLowest)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="@(item.SetAsBaseLine ? "table-primary" : "")">
+                    <td>
+                        <a href="@Url.Action("Details", "BenchmarkExperiment", new { id = item.Id })">@item.Name</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Started)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Completed)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompletedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeToComplete)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfContainerMetricRecords)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vCPU)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUPercentageMean)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUPercentageRange)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUPercentageHighest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUPercentageLowest)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Memory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentageMean)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentageRange)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentageHighest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentageLowest)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.Id })">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Started)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Completed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompletedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeToComplete)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberOfContainerMetricRecords)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vCPU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPUPercentageMean)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPUPercentageRange)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPUPercentageHighest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPUPercentageLowest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Memory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentageMean)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentageRange)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentageHighest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentageLowest)
+                </th>
+            </tr>
+        </tfoot>
+
+    </table>
+</div>

@@ -1,0 +1,140 @@
+﻿@model Docker.Benchmarking.Orchestrator.Web.ViewModels.EditBenchmarkExperimentViewModel
+
+@{
+    ViewData["Title"] = "Edit Benchmark Test: " + Model.Id;
+}
+
+<h1 class="h2">@ViewData["Title"]</h1>
+<hr />
+
+<form asp-action="Edit" asp-controller="BenchmarkExperiment" method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control disabled" readonly />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BenchmarkingName" class="control-label"></label>
+                <input asp-for="BenchmarkingName" class="form-control" />
+                <span asp-validation-for="BenchmarkingName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExperimentReference" class="control-label"></label>
+                <input asp-for="ExperimentReference" class="form-control" />
+                <span asp-validation-for="ExperimentReference" class="text-danger"></span>
+            </div>
+            <div class="@(Model.Completed ? "" : "")">
+                <div class="form-group">
+                    <label asp-for="Host" class="control-label"></label>
+                    <select asp-for="Host" asp-items="@Model.Hosts" class="form-control js-example-basic-single">
+                        <option selected="selected" value="">Please select the host to benchmark</option>
+                    </select>
+                    <span asp-validation-for="Host" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BenchmarkHost" class="control-label"></label>
+                    <select asp-for="BenchmarkHost" asp-items="@Model.BenchmarkHosts" class="form-control js-example-basic-single">
+                        <option selected="selected" value="">Please select the host to launch the benchmark</option>
+                    </select>
+                    <span asp-validation-for="Host" class="text-danger"></span>
+                </div>
+                @*<div class="form-group d-none" id="database-host">
+                        <label asp-for="DatabaseHost" class="control-label"></label>
+                        <select asp-for="DatabaseHost" asp-items="@Model.DatabaseHosts" class="form-control js-example-basic-single">
+                            <option selected="selected" value="">Please select the host to launch database image on (optional)</option>
+                        </select>
+                        <span asp-validation-for="DatabaseHost" class="text-danger"></span>
+                    </div>*@
+                <div class="form-group">
+                    <label asp-for="Application" class="control-label"></label>
+                    <select asp-for="Application" asp-items="@Model.Applications" class="form-control js-example-basic-single input-lg">
+                        <option selected="selected" value="">Please select the application</option>
+                    </select>
+                    <span asp-validation-for="Application" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ApacheTestFileId" class="control-label"></label>
+                    <select asp-for="ApacheTestFileId" asp-items="@Model.ApacheTestFiles" class="form-control js-example-basic-single input-lg">
+                        <option selected="selected" value="">Please select the apache testfile to use for the benchmark</option>
+                    </select>
+                    <span asp-validation-for="ApacheTestFileId" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="@(Model.Completed ? "d-none" : "")">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="CaptureContainerMetrics" /> @Html.DisplayNameFor(model => model.CaptureContainerMetrics)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BenchmarkTimeLength" class="control-label"></label>
+                    <select asp-for="BenchmarkTimeLength" class="form-control js-example-basic-single input-lg">
+                        <option selected="selected" value="">Select length of experiment</option>
+                        <option value="60000">1 minute</option>
+                        <option value="120000">2 minutes</option>
+                        <option value="300000">5 minutes</option>
+                        <option value="600000">10 minutes</option>
+                        <option value="900000">15 minutes</option>
+                        <option value="1800000">30 minutes</option>
+                        <option value="3600000">60 minutes</option>
+                    </select>
+                    <span asp-validation-for="BenchmarkTimeLength" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConcurrentUsers" class="control-label"></label>
+                    <input asp-for="ConcurrentUsers" class="form-control" />
+                    <span asp-validation-for="ConcurrentUsers" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="SetAsBaseLine" /> @Html.DisplayNameFor(model => model.SetAsBaseLine)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOfTest" class="control-label"></label>
+                <select asp-for="TypeOfTest" class="form-control js-example-basic-single input-lg" asp-items="Html.GetEnumSelectList<Docker.Benchmarking.Orchestrator.Core.Enums.TestType>()">
+                    <option selected="selected" value="">Please select an application type</option>
+                </select>
+                <span asp-validation-for="TypeOfTest" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="DateTimeCreated" />
+                <input type="hidden" asp-for="Completed" />
+                <input type="submit" value="Edit" class="btn btn-primary btn-lg" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

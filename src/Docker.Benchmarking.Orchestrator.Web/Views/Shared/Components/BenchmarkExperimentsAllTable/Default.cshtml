@@ -1,0 +1,425 @@
+﻿@model IEnumerable<Docker.Benchmarking.Orchestrator.Web.ViewModels.BenchmarkTestViewModel>
+
+<div class="table-responsive">
+    <div class="col-md-12">
+        <a class="toggle-vis" data-column="0"></a><a class="toggle-vis" data-column="1"></a><a class="toggle-vis" data-column="2"></a><a class="toggle-vis" data-column="3"></a><a class="toggle-vis" data-column="4"></a><a class="toggle-vis" data-column="5"></a>
+    </div>
+    <table class="table table-striped table-bordered" id="benchmark-experiments-table" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BenchmarkingName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExperimentReference)
+                </th>
+                <th>
+                    Application
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Started)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Completed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CloudProvider)
+                </th>
+                <th>
+                    VM Name
+                </th>
+                <th>
+                    vCPUs
+                </th>
+                <th>
+                    CPU %
+                </th>
+                <th>
+                    CPU % Range
+                </th>
+                <th>
+                    CPU % Max
+                </th>
+                <th>
+                    CPU % Min
+                </th>
+                <th>
+                    CPU StdDeviation
+                </th>
+                <th>
+                    Memory Size
+                </th>
+                <th>
+                    Memory %
+                </th>
+                <th>
+                    Memory Range %
+                </th>
+                <th>
+                    Memory Max %
+                </th>
+                <th>
+                    Memory Min %
+                </th>
+                <th>
+                    Memory StdDeviation
+                </th>
+                <th>
+                    Network Input
+                </th>
+                <th>
+                    Network Output
+                </th>
+                <th>
+                    Block Input
+                </th>
+                <th>
+                    Block Output
+                </th>
+                <th>
+                    Throughput per Second
+                </th>
+                <td>
+                    Avg. Response Time
+                </td>
+                <td>
+                    Max Response Time
+                </td>
+                <td>
+                    Min Response Time
+                </td>
+                <td>
+                    StdDeviation Response Time
+                </td>
+                <td>
+                    WebServer Benchmark Runtime
+                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.BenchmarkTimeLength)
+                </th>
+                <td>
+                    Apdex TSeconds
+                </td>
+                <td>
+                    Apdex Score
+                </td>
+                <td>
+                    Apdex Rating
+                </td>
+                <td>
+                    Apdex Satisfied
+                </td>
+                <td>
+                    Apdex Tolerating
+                </td>
+                <td>
+                    Apdex Frustrating
+                </td>
+                <td>
+                    Avg. Latency
+                </td>
+                <td>
+                    Max. Latency
+                </td>
+                <td>
+                    Min. Latency
+                </td>
+                <th>
+                    No. Requests
+                </th>
+                <th>
+                    No. Errors
+                </th>
+                <th>
+                    Id
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="@(item.SetAsBaseLine ? "table-primary" : "")">
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.Id })">Edit</a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", new { id = item.Id })">Details</a>
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.BenchmarkingName
+                    </td>
+                    <td>
+                        @item.ExperimentReference
+                    </td>
+                    <td>
+                        @item.Application.Name
+                    </td>
+                    <td>
+                        @(item.Started ? "Yes" : "No")
+                    </td>
+                    <td>
+                        @(item.Completed ? "Yes" : "No")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CloudProvider)
+                    </td>
+                    <td>
+                        @item.InstanceName()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vCPU)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUPercentageMean)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUPercentageRange)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUPercentageHighest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUPercentageLowest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPUStandDeviation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Memory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentageMean)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentageRange)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentageHighest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentageLowest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryStandDeviation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NetworkInputTotalBytes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NetworkOutputTotalBytes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BlockInputTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BlockOutputTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ThroughputPerSecond)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AverageResponseTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxResponseTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MinResponseTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StandardDeviationWebServerResponse)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WebServerBenchmarkElapsedTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BenchmarkTimeLength)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApdexTSeconds)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApdexScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApdexRating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApdexSatisfied)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApdexTolerating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApdexFustrated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AverageLatecy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxLatency)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MinLatency)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfSamples)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfErrors)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BenchmarkingName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExperimentReference)
+                </th>
+                <th>
+                    Application
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Started)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Completed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CloudProvider)
+                </th>
+                <th>
+                    VM Name
+                </th>
+                <th>
+                    vCPUs
+                </th>
+                <th>
+                    CPU %
+                </th>
+                <th>
+                    CPU % Range
+                </th>
+                <th>
+                    CPU % Max
+                </th>
+                <th>
+                    CPU % Min
+                </th>
+                <th>
+                    CPU StdDeviation
+                </th>
+                <th>
+                    Memory Size
+                </th>
+                <th>
+                    Memory %
+                </th>
+                <th>
+                    Memory Range %
+                </th>
+                <th>
+                    Memory Max %
+                </th>
+                <th>
+                    Memory Min %
+                </th>
+                <th>
+                    Memory StdDeviation
+                </th>
+                <th>
+                    Network Input
+                </th>
+                <th>
+                    Network Output
+                </th>
+                <th>
+                    Block Input
+                </th>
+                <th>
+                    Block Output
+                </th>
+                <td>
+                    Throughput per Second
+                </td>
+                <th>
+                    Avg. Response Time
+                </th>
+                <th>
+                    Max Response Time
+                </th>
+                <th>
+                    Min Response Time
+                </th>
+                <th>
+                    StdDeviation Response Time
+                </th>
+                <th>
+                    WebServer Benchmark Runtime
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BenchmarkTimeLength)
+                </th>
+                <td>
+                    Apdex TSeconds
+                </td>
+                <th>
+                    Apdex Score
+                </th>
+                <th>
+                    Apdex Rating
+                </th>
+                <th>
+                    Apdex Satisfied
+                </th>
+                <th>
+                    Apdex Tolerating
+                </th>
+                <th>
+                    Apdex Frustrating
+                </th>
+                <th>
+                    Avg. Latency
+                </th>
+                <th>
+                    Max. Latency
+                </th>
+                <th>
+                    Min. Latency
+                </th>
+                <th>
+                    No. Requests
+                </th>
+                <th>
+                    No. Errors
+                </th>
+                <th>
+                    Id
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

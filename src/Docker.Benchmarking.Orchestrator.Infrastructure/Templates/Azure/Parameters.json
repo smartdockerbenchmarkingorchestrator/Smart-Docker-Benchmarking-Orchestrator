@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUserName": { "value": "mnee2" },
+    "adminPassword": { "value": "Murderdolls666" },
+    "dnsNameForPublicIP": { "value": "dns-mnee2" },
+    "vmSize": { "value": "Standard_F1" },
+    "ubuntuOSVersion": { "value": "16.04.0-LTS" }
+    //"publicIPAddresses_name": { "value": "mnee2PublicIP" }
+  }
+}

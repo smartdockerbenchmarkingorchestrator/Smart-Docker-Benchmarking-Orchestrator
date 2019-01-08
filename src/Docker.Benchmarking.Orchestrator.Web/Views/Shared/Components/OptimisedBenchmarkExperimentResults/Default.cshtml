@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Docker.Benchmarking.Orchestrator.Optimizer.Models.OptimisedResult>
+
+<h4>Results</h4>
+<div class="table-responsive">
+    <table id="docker-host-table" class="table table-striped table-sm" style="width:100%">
+        <thead>
+            <tr>
+                <th>Host VM Name</th>
+                <th>VM Size</th>
+                <th>VM CPH</th>
+                <th>Host Total Cost</th>
+                <th>Benchmark VM Name</th>
+                <th>VM Size</th>
+                <th>VM CPH</th>
+                <th>Benchmark Total Cost</th>
+                <th>Total Experiment Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.HostVM.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HostVM.VMSize)</td>
+                    <td>$@Html.DisplayFor(modelItem => item.HostVM.CostPerHour)</td>
+                    <td>$@Html.DisplayFor(modelItem => item.HostVM.TotalCost)</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.BenchmarkVM.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.BenchmarkVM.VMSize)</td>
+                    <td>$@Html.DisplayFor(modelItem => item.BenchmarkVM.CostPerHour)</td>
+                    <td>$@Html.DisplayFor(modelItem => item.BenchmarkVM.TotalCost)</td>
+                    <td>$@Html.DisplayFor(modelItem => item.TotalCostForExperiment)</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Host VM Name</th>
+                <th>VM Size</th>
+                <th>VM CPH</th>
+                <th>Host Total Cost</th>
+                <th>Benchmark VM Name</th>
+                <th>VM Size</th>
+                <th>VM CPH</th>
+                <th>Benchmark Total Cost</th>
+                <th>Total Experiment Cost</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<label>Experiments Found: </label><span id="experiments-found">@Model.Count()</span>
+<br />
+<label>Experiments Total Cost (Estimate): $@Model.Sum(c => c.TotalCostForExperiment).ToString("0.##")</label>

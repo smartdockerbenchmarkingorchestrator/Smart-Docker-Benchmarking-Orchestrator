@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUserName": {
+      "value": "BenchmarkOrchestrator"
+    },
+    "adminPassword": {
+      "value": "k7fd2j9cCksGJNsh"
+    },
+    "dnsNameForPublicIP": {
+      "value": "dockerba636717495924923462"
+    },
+    "vmSize": {
+      "value": "Standard_B1s"
+    },
+    "ubuntuOSVersion": {
+      "value": "16.04.0-LTS"
+    },
+    "location": {
+      "value": "westeurope"
+    }
+  }
+}

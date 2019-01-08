@@ -1,0 +1,115 @@
+﻿@model Docker.Benchmarking.Orchestrator.Web.ViewModels.AddAzureTemplateViewModel
+
+@{
+    ViewData["Title"] = "Add Azure Host Template";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/lib/code-mirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="~/lib/code-mirror/addon/hint/show-hint.css" />
+    <style type="text/css">
+        .CodeMirror {
+            border: 1px solid #eee;
+        }
+    </style>
+
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+
+<form asp-action="Add" method="post" asp-controller="Azure">
+    <div class="row">
+        <div class="col-md-6">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VMSize" class="control-label"></label>
+                <input asp-for="VMSize" class="form-control" />
+                <span asp-validation-for="VMSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vCPUs" class="control-label"></label>
+                <input asp-for="vCPUs" class="form-control" />
+                <span asp-validation-for="vCPUs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Memory" class="control-label"></label>
+                <input asp-for="Memory" class="form-control" />
+                <span asp-validation-for="Memory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiskSize" class="control-label"></label>
+                <input asp-for="DiskSize" class="form-control" />
+                <span asp-validation-for="DiskSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VMSizeType" class="control-label"></label>
+                <select asp-for="VMSizeType" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList(typeof (Docker.Benchmarking.Orchestrator.Core.Enums.VMSize))">
+                    <option value="">Select VM Size</option>
+                </select>
+                <span asp-validation-for="VMSizeType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Template" class="control-label"></label>
+                <textarea asp-for="Template" class="form-control"></textarea>
+                <span asp-validation-for="Template" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParametersDefault" class="control-label"></label>
+                <textarea asp-for="ParametersDefault" class="form-control"></textarea>
+                <span asp-validation-for="ParametersDefault" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeploymentType" class="control-label"></label>
+                <select asp-for="DeploymentType" class="form-control js-example-basic-single input-lg" asp-items="Html.GetEnumSelectList<Docker.Benchmarking.Orchestrator.Core.Enums.AzureDeploymentType>()">
+                    <option selected="selected" value="">Please select deployment type</option>
+                </select>
+                <span asp-validation-for="DeploymentType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary btn-lg" />
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/lib/code-mirror/lib/codemirror.js"></script>
+    <script src="~/lib/code-mirror/addon/edit/matchbrackets.js"></script>
+    <script src="~/lib/code-mirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/code-mirror/addon/comment/comment.js"></script>
+    <script src="~/js/json-ld.js"></script>
+
+    <script>
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("Template"), {
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            mode: "application/ld+json",
+            lineWrapping: true
+        });
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("ParametersDefault"), {
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            mode: "application/ld+json",
+            lineWrapping: true
+        });
+    </script>
+
+    }

@@ -1,0 +1,242 @@
+﻿@page
+@inject IJsonHelper Json
+@model Docker.Benchmarking.Orchestrator.Web.Pages.AWS.TestTemplateModel
+@{
+    ViewData["Title"] = "Test AWS Cloudformation Template";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/lib/code-mirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="~/lib/code-mirror/addon/hint/show-hint.css" />
+    <style type="text/css">
+        .CodeMirror {
+            border: 1px solid #eee;
+        }
+    </style>
+
+}
+
+<h1 class="h2">@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        @if (Model.Capabilities != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">Validate Success</h4>
+                @foreach (var item in Model.Capabilities)
+                {
+                    <p>@item</p>
+                }
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.EstimatedCostsUrl))
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">Estimate Url Success</h4>
+                <a target="_blank" href="@Model.EstimatedCostsUrl">View Estimated Costs</a>
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        }
+
+
+        @if (!string.IsNullOrEmpty(Model.JobId))
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">Deployment Request Successful</h4>
+                <p>JobId: @Model.JobId</p>
+                <p>Go to hangfire dashboard to check progress of job.</p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        }
+
+        <div class="alert alert-success alert-dismissible fade show d-none" id="ipaddress-alert" role="alert">
+            <h4 class="alert-heading">Instance Created</h4>
+            <p>IP Address: <span id="ipAddressSpan"></span></p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StackName" class="control-label"></label>
+                <input asp-for="StackName" class="form-control" readonly />
+                <span asp-validation-for="StackName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Template" class="control-label"></label>
+                <input asp-for="Template" class="form-control" readonly="@(Model.HasValidated)" />
+                <span asp-validation-for="Template" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Credential" class="control-label"></label>
+                <select asp-for="Credential" asp-items="@Model.Credentials" class="form-control js-example-basic-single input-lg" readonly="@(Model.HasValidated)">
+                    <option selected="selected" value="">Please select the region associated with the Key/Secret pair</option>
+                </select>
+                <span asp-validation-for="Credential" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <table id="parameters-table" class="table table-striped table-bordered" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Parameters">
+                        <tr>
+                            <td><input data-bind='attr: { value: key, name: "Parameters["+$index()+"].Key"}' class="form-control" required readonly="@(Model.HasValidated)" /></td>
+                            <td><input data-bind='attr: { value: value, name: "Parameters["+$index()+"].Value"}' class="form-control" required readonly="@(Model.HasValidated)" /></td>
+                            <td><a href="#" data-bind="click: $root.removeItem" class="btn btn-danger @(Model.HasValidated ? "d-none" : "")" >Remove</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group pull-right">
+                <label asp-for="DockerImageId" class="control-label"></label>
+                <button data-bind="click: addItem.bind($data, null)" class="btn btn-danger @(Model.HasValidated ? "d-none" : "")">Add Parameter</button>
+            </div>
+            <div class="form-group">
+                <label asp-for="DockerImageId" class="control-label"></label>
+                <select asp-for="DockerImageId" asp-items="@Model.DockerImages" class="form-control js-example-basic-single input-lg" readonly="@(Model.HasValidated)">
+                    <option selected="selected" value="">Please select a docker image to deploy</option>
+                </select>
+                <span asp-validation-for="DockerImageId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="JobId" />
+                <input asp-for="EstimatedCostsUrl" />
+                <input asp-for="HasValidated" />
+                <input type="submit" value="Validate Template" asp-page-handler="Validate" class="btn btn-success btn-lg" />
+
+                @if (Model.HasValidated)
+                {
+                    <input type="submit" value="Get Estimated Costs" asp-page-handler="EstimatedCosts" class="btn btn-danger btn-lg" />
+                    <input type="submit" value="Deploy Script" asp-page-handler="TestDeploy" class="btn btn-primary btn-lg" />
+                    <input type="submit" value="Delete Resources" asp-page-handler="DeleteResources" class="btn btn-info btn-lg" />
+                }
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.min.js"></script>
+    <script src="~/lib/signalr/signalr.js"></script>
+    <script src="~/lib/code-mirror/lib/codemirror.js"></script>
+    <script src="~/lib/code-mirror/addon/edit/matchbrackets.js"></script>
+    <script src="~/lib/code-mirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/code-mirror/addon/comment/comment.js"></script>
+    <script src="~/js/json-ld.js"></script>
+    <script>
+
+        //signalr
+
+       
+
+        //connection.on("ReceiveMessage", (user, message) => {
+        //    const encodedMsg = user + " says " + message;
+        //    const li = document.createElement("li");
+        //    li.textContent = encodedMsg;
+        //    document.getElementById("messagesList").appendChild(li);
+        //});
+
+        //document.getElementById("sendButton").addEventListener("click", event => {
+        //    const user = document.getElementById("userInput").value;
+        //    const message = document.getElementById("messageInput").value;
+        //    connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
+        //    event.preventDefault();
+        //});
+
+        @if (!string.IsNullOrEmpty(Model.JobId))
+        {
+            <text>
+        setTimeout(function () {
+
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("/AWSHub")
+                .configureLogging(signalR.LogLevel.Information)
+                .build();
+          connection.start()
+                .then(_ => connection.invoke("SubscribeTestTemplate", "@Model.StackName", '@Model.Credential'))
+                .catch(err => console.error(err.toString()));
+
+            connection.on("progress",
+                (percent) => {
+                    //alert(percent);
+                    console.log(percent);
+                    $('#ipAddressSpan').text(percent);
+                    $('#ipaddress-alert').removeClass('d-none');
+                });
+        }, 120000);
+
+           
+            </text>
+        }
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("Template"), {
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            mode: "application/ld+json",
+            lineWrapping: true
+        });
+
+        $(function () {
+            var items = @Html.Raw(Json.Serialize(Model.Parameters));
+            ko.applyBindings(viewModel);
+            //viewModel.addItem();
+
+            $.each(items, function (i, item) {
+                //console.log(item);
+                var parameterItem = new Parameter(item);
+                console.log(parameterItem);
+                viewModel.Parameters.push(parameterItem);
+            });
+
+        });
+
+        function Parameter(item) {
+                var self = this;
+                self.key = item.key;
+                self.value = item.value;
+            }
+
+            var viewModel = {
+                Parameters: ko.observableArray(),
+                addItem: function (select) {
+                    console.log(select);
+                    var preItem = @Html.Raw(Json.Serialize(new Docker.Benchmarking.Orchestrator.Web.ViewModels.AWS.AWSParameterViewModel()));
+                    if (select == null) {
+                        var item = new Parameter(preItem);
+                        return viewModel.Parameters.push(item);
+                    }
+                },
+                removeItem: function (item) { viewModel.Parameters.remove(item) }
+            };
+    </script>
+
+}
+

@@ -1,0 +1,148 @@
+﻿@model IEnumerable<Docker.Benchmarking.Orchestrator.Web.ViewModels.DockerHostViewModel>
+
+<div class="table-responsive">
+    <table id="docker-host-table" class="table table-striped table-sm" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HostName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PortNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UseHttpAuthentication)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UseTlsAuthentication)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CloudProvider)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vCPU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Memory)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Details", "Host", new { id = item.Id })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditHost", new { id = item.Id }) |
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HostName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PortNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UseHttpAuthentication)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UseTlsAuthentication)
+                    </td>
+                    <td>
+                        @(item.Active ? "Active" : "Not Active")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CloudProvider)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vCPU)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Memory)
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HostName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PortNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UseHttpAuthentication)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UseTlsAuthentication)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CloudProvider)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vCPU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Memory)
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,326 @@
+﻿@model Docker.Benchmarking.Orchestrator.Web.ViewModels.AddDockerHostViewModel
+
+@{
+    ViewData["Title"] = "Add Docker Host";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<form asp-action="AddHost" asp-controller="Docker" method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HostName" class="control-label"></label>
+                <input asp-for="HostName" class="form-control" />
+                <span asp-validation-for="HostName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PortNumber" class="control-label"></label>
+                <input asp-for="PortNumber" class="form-control" />
+                <span asp-validation-for="PortNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HostType" class="control-label"></label>
+                <select asp-for="HostType" class="form-control js-example-basic-single input-lg" asp-items="Html.GetEnumSelectList<Docker.Benchmarking.Orchestrator.Core.Enums.HostType>()">
+                    <option selected="selected" value="">Please select a cloud provider</option>
+                </select>
+                <span asp-validation-for="HostType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="UseHttpAuthentication" /> @Html.DisplayNameFor(model => model.UseHttpAuthentication)
+                    </label>
+                </div>
+            </div>
+            <div id="HttpAuthenticationSection" class="d-none">
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="UseTlsAuthentication" /> @Html.DisplayNameFor(model => model.UseTlsAuthentication)
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="CloudProvider" class="control-label"></label>
+                <select asp-for="CloudProvider" class="form-control js-example-basic-single input-lg" asp-items="Html.GetEnumSelectList<Docker.Benchmarking.Orchestrator.Core.Enums.CloudProvider>()">
+                    <option selected="selected" value="">Please select a cloud provider</option>
+                </select>
+                <span asp-validation-for="CloudProvider" class="text-danger"></span>
+            </div>
+            <div class="form-group d-none" id="destroy-resources">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="DestroyResourcesAfterBenchmark" /> @Html.DisplayNameFor(model => model.DestroyResourcesAfterBenchmark)
+                    </label>
+                </div>
+            </div>
+
+            <div id="AWSHostSection" class="d-none">
+                <h4>AWS Host Detials</h4>
+                <div class="form-group">
+                    <label asp-for="AWSCredential" class="control-label"></label>
+                    <select asp-for="AWSCredential" class="form-control js-example-basic-single">
+                        <option selected="selected" value="">Please select AWS credentials for location to deploy resources</option>
+                        @foreach (var vm in Model.AWSCredentials)
+                        {
+                            <option value="@vm.Id" data-location="@vm.AWSEndPoint.DisplayName">@(vm.Name + " - " + vm.AWSEndPoint.DisplayName)</option>
+                        }
+                    </select>
+                    <span asp-validation-for="AWSCredential" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AWSTemplate" class="control-label"></label>
+                    <select asp-for="AWSTemplate" class="form-control js-example-basic-single">
+                        <option selected="selected" value="">Please select AWS credentials for location to deploy resources</option>
+                        @foreach (var vm in Model.AWSTemplates)
+                        {
+                            <option value="@vm.Id" data-cpu="@vm.vCPUs" data-memory="@vm.Memory">@vm.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="AWSTemplate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div id="AzureHostSection" class="d-none">
+                <h4>Azure Host Detials</h4>
+                <div id="AzureVMDetails">
+                    <div class="form-group">
+                        <label asp-for="AzureCredential" class="control-label"></label>
+                        <select asp-for="AzureCredential" class="form-control js-example-basic-single" asp-items="Model.AzureCredentials">
+                            <option selected="selected" value="">Please select an azure vm size</option>
+                        </select>
+                        <span asp-validation-for="AzureCredential" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AzureLocation" class="control-label"></label>
+                        <select asp-for="AzureLocation" class="form-control js-example-basic-single" asp-items="Model.AzureLocations">
+                            <option selected="selected" value="">Please select an azure location</option>
+                        </select>
+                        <span asp-validation-for="AzureLocation" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AzureTemplate" class="control-label"></label>
+                        <select asp-for="AzureTemplate" class="form-control js-example-basic-single">
+                            <option selected="selected" value="">Please select an azure vm size</option>
+                            @foreach (var vm in Model.AzureVMSizes)
+                            {
+                                <option value="@vm.Id" data-cpu="@vm.vCPUs" data-memory="@vm.Memory">@vm.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="AzureTemplate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vCPU" class="control-label"></label>
+                <input asp-for="vCPU" class="form-control" />
+                <span asp-validation-for="vCPU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Memory" class="control-label"></label>
+                <input asp-for="Memory" class="form-control" />
+                <span asp-validation-for="Memory" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Active" type="hidden" value="true" />
+                <input type="submit" id="btn-submit" value="Create" class="btn btn-primary btn-lg d-none" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<button id="btn-ping-docker" class="btn btn-success btn-lg">Check Communication with Host</button>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        // A $( document ).ready() block.
+        $(document).ready(function () {
+            $("#UseHttpAuthentication").change(function () {
+                if (this.checked) {
+                    //Do stuff
+
+                    $("#HttpAuthenticationSection").removeClass('d-none');  // checked
+                }
+                else {
+                    $("#HttpAuthenticationSection").addClass('d-none');  // unchecked
+                }
+            });
+
+            $("#CreateHostMachine").change(function () {
+
+                $("#CloudProvider").change();
+
+                var createHostMachine = $('#CreateHostMachine').is(':checked');
+
+                if (createHostMachine) {
+
+                    $("#btn-ping-docker").addClass('d-none');
+                    $("#btn-submit").removeClass('d-none');
+                }
+                else {
+
+                    $("#btn-ping-docker").removeClass('d-none');
+                    $("#btn-submit").addClass('d-none');
+                }
+            });
+
+            $('#AWSCredential').change(function () {
+
+                var item = $(this).find("option:selected");
+                $('#Location').val(item.data("location"));
+            });
+
+            $("#CloudProvider").change(function () {
+
+                var cloudProvider = $('#CloudProvider').find("option:selected").text();
+
+                if (cloudProvider == 'Azure') {
+                    $("#AzureHostSection").removeClass('d-none');
+                    $('#destroy-resources').removeClass('d-none');
+                    $("#AWSHostSection").addClass('d-none');
+// checked
+                }
+                else if (cloudProvider == 'Amazon Web Services') {
+                    $("#AWSHostSection").removeClass('d-none');
+                    $('#destroy-resources').removeClass('d-none');
+                    $("#AzureHostSection").addClass('d-none');
+                    // checked
+                }
+                else {
+                    $("#AzureHostSection, #AWSHostSection").addClass('d-none');
+                    $('#destroy-resources').addClass('d-none');// checked
+                }
+
+                if (cloudProvider == 'AWS' || cloudProvider == 'Azure') {
+                    $('#create-host-machine').removeClass('d-none');
+                }
+            });
+
+
+        });
+
+        $('#AzureTemplate').change(function () {
+            var item = $(this).find("option:selected");
+            $('#vCPU').val(item.data("cpu"));
+            $('#Memory').val(item.data("memory"));
+
+            if (item) {
+                $("#btn-ping-docker").addClass('d-none');
+                $("#btn-submit").removeClass('d-none');
+            }
+            else {
+
+                $("#btn-ping-docker").removeClass('d-none');
+                $("#btn-submit").addClass('d-none');
+            }
+        });
+
+        $('#AWSTemplate').change(function () {
+            var item = $(this).find("option:selected");
+            $('#vCPU').val(item.data("cpu"));
+            $('#Memory').val(item.data("memory"));
+
+            if (item) {
+                $("#btn-ping-docker").addClass('d-none');
+                $("#btn-submit").removeClass('d-none');
+            }
+            else {
+
+                $("#btn-ping-docker").removeClass('d-none');
+                $("#btn-submit").addClass('d-none');
+            }
+        });
+
+
+
+
+        $('#AzureLocation').change(function () {
+            var item = $(this).find("option:selected");
+            $('#Location').val(item.val());
+        });
+
+        $('#CreateHostMachine').change(function () {
+
+            var element = this;
+
+            if (!element.checked) {
+                $("#btn-ping-docker").addClass('.d-none');
+                $("#btn-submit").removeClass('.d-none');
+            }
+        });
+
+        $("#btn-ping-docker").click(function () {
+            var host = document.getElementsByName('HostName')[0].value;
+            var portNumber = document.getElementsByName('PortNumber')[0].value;
+            var httpAuthentication = document.getElementsByName('UseHttpAuthentication')[0].checked;
+            var userName = document.getElementsByName('UserName')[0].value;
+            var password = document.getElementsByName('Password')[0].value;
+
+
+            $.ajax({
+                url: "@Url.Action("CanCommunicateWithDockerHost", "Docker")",
+                method: "POST",
+                data: {
+                    "hostName": host,
+                    "portNumber": portNumber,
+                    "httpAuthentication": httpAuthentication,
+                    "userName": userName,
+                    "password": password
+                }
+            })
+                .done(function (data) {
+                    if (data) {
+                        //$('.modal').modal('hide');
+                        toastr.success('Can communicate with Docker host.', 'Success');
+                        $("#btn-submit").removeClass('d-none');
+                    } else {
+                        toastr.error("Can't communicate with Docker host.", 'Error');
+                    }
+                })
+                .fail(function (xhr) {
+                    console.log('error', xhr);
+                });
+        });
+    </script>
+
+}

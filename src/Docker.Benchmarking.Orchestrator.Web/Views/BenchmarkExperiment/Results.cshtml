@@ -1,0 +1,241 @@
+﻿@model Docker.Benchmarking.Orchestrator.Web.ViewModels.BenchmarkTestViewModel
+
+@{
+    ViewData["Title"] = "Results for Benchmark Experiment:" + Model.BenchmarkExperimentId;
+}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h4">@ViewData["Title"]</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-outline-secondary" id="btn-export">Export</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <h2 class="h4">CPU Percentage</h2>
+        <canvas class="my-4 w-100" id="cpuStats" width="900" height="400"></canvas>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <h2 class="h4">Memory Percentage</h2>
+        <canvas class="my-4 w-100" id="memoryStats" width="900" height="400"></canvas>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <h2 class="h4">Network I/O</h2>
+        <canvas class="my-4 w-100" id="networkIO" width="900" height="400"></canvas>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <h2 class="h4">Block(Disk) I/O</h2>
+        <canvas class="my-4 w-100" id="blockIO" width="900" height="400"></canvas>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Container Metric Data</h2><hr />
+        @await Component.InvokeAsync("DockerCPUTable", new { applicationTestId = Model.BenchmarkExperimentId })
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $.ajax({
+                type: "get",
+                url: "/api/GraphResults/GetContainerMetricsForBenchmark",
+                data: { 'id': '@Model.BenchmarkExperimentId' },
+                contentType: "application/json; charset=utf-8",
+                async: true,
+                dataType: "json",
+                success: function (response) {
+                    if (response) {
+                        var labelArray = response.map(function (el) { var d = new Date(el.dateTimeUtc); return formatDateForGraphLabel(d); });
+
+                        var cpuData = response.map(function (el) { return el.cpuPercentage; });
+                        var cpuCtx = document.getElementById("cpuStats");
+                        graph(cpuCtx, labelArray, cpuData, 'CPU Percentage');
+
+                        var memoryData = response.map(function (el) { return el.memoryPercentage; });
+                        var memoryCtx = document.getElementById("memoryStats");
+                        graph(memoryCtx, labelArray, memoryData, 'Memory Percentage');
+
+
+                        var networkInput = response.map(function (el) { return el.networkInput; });
+                        var networkOutput = response.map(function (el) { return el.networkOutput; });
+                        var networkCtx = document.getElementById("networkIO");
+                        graph2Data(networkCtx, labelArray, networkInput, networkOutput, 'Network Input', 'Network Output');
+
+                        var blockInput = response.map(function (el) { return el.blockInput; });
+                        var blockOutput = response.map(function (el) { return el.blockOutput; });
+                        var blockCtx = document.getElementById("blockIO");
+                        graph2Data(blockCtx, labelArray, blockInput, blockOutput, 'Block Input', 'Block Output');
+
+
+                    }
+                },
+                failure: function (response) {
+                    console.log(response.responseText);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+
+        function graph(ctx, labelArray, data, label) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labelArray,
+                    datasets: [{
+                        data: data,
+                        label: label,
+                        lineTension: 0,
+                        backgroundColor: 'transparent',
+                        borderColor: '#007bff',
+                        borderWidth: 4,
+                        pointBackgroundColor: '#007bff'
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: false
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            });
+        }
+
+        function graph2Data(ctx, labelArray, data, data2, label1, label2) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labelArray,
+                    datasets: [
+                    {
+                        label: label1,
+                        data: data,
+                        lineTension: 0,
+                        backgroundColor: 'transparent',
+                        borderColor: '#007bff',
+                        borderWidth: 4,
+                        pointBackgroundColor: '#007bff'
+                    }, {
+                            label: label2,
+                            data: data2,
+                            lineTension: 0,
+                            backgroundColor: 'transparent',
+                            borderColor: '#0cdc42',
+                            borderWidth: 4,
+                            pointBackgroundColor: '#0cdc42'
+                        }
+                    ]
+                },
+
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: false
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            });
+        }
+
+
+
+        $('#btn-export').click(function () {
+            $.ajax({
+                url: "@Url.Action("ExportResultsToCsv", "GraphResults", new { id = Model.BenchmarkExperimentId })",
+                method: "POST",
+                //xhrFields: {
+                //    responseType: 'blob'
+                //},
+                })
+                .done(function (response, status, xhr) {
+                    var filename = "";
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                    }
+
+                    var type = xhr.getResponseHeader('Content-Type');
+                    var blob = new Blob([response], { type: type });
+
+                    if (typeof window.navigator.msSaveBlob !== 'undefined') {
+                        // IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."
+                        window.navigator.msSaveBlob(blob, filename);
+                    } else {
+                        var URL = window.URL || window.webkitURL;
+                        var downloadUrl = URL.createObjectURL(blob);
+
+                        if (filename) {
+                            // use HTML5 a[download] attribute to specify filename
+                            var a = document.createElement("a");
+                            // safari doesn't support this yet
+                            if (typeof a.download === 'undefined') {
+                                window.location = downloadUrl;
+                            } else {
+                                a.href = downloadUrl;
+                                a.download = filename;
+                                document.body.appendChild(a);
+                                a.click();
+                            }
+                        } else {
+                            window.location = downloadUrl;
+                        }
+
+                        setTimeout(function () { URL.revokeObjectURL(downloadUrl); }, 100); // cleanup
+                    }
+                    toastr.success('File should be downloading now.', 'Success');
+                })
+                .fail(function (xhr) {
+                    console.log('error', xhr);
+                });
+
+
+        });
+
+        $(document).ready(function () {
+            var table = $('#docker-stats-table').DataTable({
+                dom: 'Bfrtip',
+                paging: false,
+                saveState: true,
+                responsive: true,
+                fixedHeader: {
+                    header: true,
+                    footer: true
+                },
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+            });
+
+            // Restore state
+            var state = table.state.loaded();
+            if (state) {
+                table.columns().eq(0).each(function (colIdx) {
+                    var colSearch = state.columns[colIdx].search;
+
+                    if (colSearch.search) {
+                        $('input', table.column(colIdx).footer()).val(colSearch.search);
+                    }
+                });
+
+                table.draw();
+            }
+        });
+
+
+    </script>
+}

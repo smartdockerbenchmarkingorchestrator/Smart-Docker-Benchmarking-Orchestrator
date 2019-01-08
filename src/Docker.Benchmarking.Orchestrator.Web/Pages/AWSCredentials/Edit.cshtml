@@ -1,0 +1,57 @@
+﻿@page "{Id:Guid}"
+@model Docker.Benchmarking.Orchestrator.Web.Pages.AWSCredentials.EditModel
+
+@{
+    ViewData["Title"] = "Edit AWS Credentials: " + Model.Name;
+}
+
+<h1 class="h2">@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccessKeyId" class="control-label"></label>
+                <input asp-for="AccessKeyId" class="form-control" />
+                <span asp-validation-for="AccessKeyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecretKey" class="control-label"></label>
+                <input asp-for="SecretKey" class="form-control" />
+                <span asp-validation-for="SecretKey" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegionEndPoint" class="control-label"></label>
+                <select asp-for="RegionEndPoint" asp-items="@Model.RegionEndPointsList" class="form-control js-example-basic-single input-lg">
+                    <option selected="selected" value="">Please select the region associated with the Key/Secret pair</option>
+                </select>
+                <span asp-validation-for="RegionEndPoint" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-lg" />
+                <input asp-for="Id" class="form-control" type="hidden" />
+                <input asp-for="DateTimeCreated" class="form-control" type="hidden" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

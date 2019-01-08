@@ -1,0 +1,31 @@
+﻿@model Docker.Benchmarking.Orchestrator.Web.ViewModels.AddDockerHostViewModel
+
+@{
+    ViewData["Title"] = "Add New Docker Host";
+}
+
+<h1 class="h2">@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add" asp-controller="Docker" method="post" id="form-docker-host">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HostName" class="control-label"></label>
+                <input asp-for="HostName" class="form-control" />
+                <span asp-validation-for="HostName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PortNumber" class="control-label"></label>
+                <input asp-for="PortNumber" class="form-control" />
+                <span asp-validation-for="PortNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button id="btn-ping-docker" class="btn btn-success btn-lg">Check Communication with Host</button>
+                <input type="submit" value="Create" class="btn btn-primary btn-lg disabled" />
+            </div>
+        </form>
+    </div>
+</div>
+

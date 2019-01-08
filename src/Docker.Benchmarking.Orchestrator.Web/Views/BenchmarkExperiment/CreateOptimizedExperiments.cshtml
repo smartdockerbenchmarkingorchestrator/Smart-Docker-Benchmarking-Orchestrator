@@ -1,0 +1,178 @@
+﻿@model Docker.Benchmarking.Orchestrator.Web.ViewModels.OptimisedBenchmarkExperimentRequestViewModel
+
+@{
+    ViewData["Title"] = "Create Optimized Experiments";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+<form asp-action="CreateOptimizedExperiments">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application" class="control-label"></label>
+                <select asp-for="Application" asp-items="@Model.Applications" class="form-control js-example-basic-single">
+                    <option selected="selected" value="">Please select the application</option>
+                </select>
+                <span asp-validation-for="Application" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BenchmarkingName" class="control-label"></label>
+                <input asp-for="BenchmarkingName" class="form-control" />
+                <span asp-validation-for="BenchmarkingName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExperimentReference" class="control-label"></label>
+                <input asp-for="ExperimentReference" class="form-control" />
+                <span asp-validation-for="ExperimentReference" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApacheTestFileId" class="control-label"></label>
+                <select asp-for="ApacheTestFileId" asp-items="@Model.ApacheTestFiles" class="form-control js-example-basic-single">
+                    <option selected="selected" value="">Please select the test file to use</option>
+                </select>
+                <span asp-validation-for="ApacheTestFileId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HostCloudProvider" class="control-label"></label>
+                <select asp-for="HostCloudProvider" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList(typeof (Docker.Benchmarking.Orchestrator.Core.Enums.CloudProvider))">
+                    <option selected="selected" value="">Please select a cloud provider</option>
+                </select>
+                <span asp-validation-for="HostCloudProvider" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BenchmarkCloudProvier" class="control-label"></label>
+                <select asp-for="BenchmarkCloudProvier" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList(typeof (Docker.Benchmarking.Orchestrator.Core.Enums.CloudProvider))">
+                    <option selected="selected" value="">Please select a cloud provider</option>
+                </select>
+                <span asp-validation-for="BenchmarkCloudProvier" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="VMLevels" class="control-label"></label>
+            <select asp-for="VMLevels" class="form-control js-example-basic-single" multiple asp-items="Html.GetEnumSelectList(typeof (Docker.Benchmarking.Orchestrator.Core.Enums.VMSize))"></select>
+            <span asp-validation-for="VMLevels" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="BenchmarkTimeLength" class="control-label"></label>
+                <select asp-for="BenchmarkTimeLength" class="form-control js-example-basic-single">
+                    <option selected="selected" value="">Select length of experiment</option>
+                    <option value="60000">1 minute</option>
+                    <option value="120000">2 minutes</option>
+                    <option value="300000">5 minutes</option>
+                    <option value="600000">10 minutes</option>
+                    <option value="900000">15 minutes</option>
+                    <option value="1800000">30 minutes</option>
+                    <option value="3600000">60 minutes</option>
+                </select>
+                <span asp-validation-for="BenchmarkTimeLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxCost" class="control-label"></label>
+                <input asp-for="MaxCost" class="form-control" />
+                <span asp-validation-for="MaxCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConcurrentUsers" class="control-label"></label>
+                <input asp-for="ConcurrentUsers" class="form-control" />
+                <span asp-validation-for="ConcurrentUsers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApdexTSeconds" class="control-label"></label>
+                <input asp-for="ApdexTSeconds" class="form-control" />
+                <span asp-validation-for="ApdexTSeconds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Testplan Overrides</label>
+                <table id="parameters-table" class="table table-striped table-bordered" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Variables">
+                        <tr>
+                            <td><input data-bind='attr: { value: name, name: "Variables["+$index()+"].Name"}' class="form-control" required /></td>
+                            <td><input data-bind='attr: { value: value, name: "Variables["+$index()+"].Value"}' class="form-control" required /></td>
+                            <td><a href="#" data-bind="click: $root.removeItem" class="btn btn-danger">Remove</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="btn-submit" value="Create Optimised Experiments" class="btn btn-primary btn-lg d-none" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="results-container">
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.min.js"></script>
+    <script>
+        $(function () {
+            var items = @Html.Raw(Json.Serialize(Model.Variables));
+            ko.applyBindings(viewModel);
+
+            $.each(items, function (i, item) {
+                var variableItem = new Variable(item);
+                viewModel.Variables.push(variableItem);
+            });
+        });
+
+        function Variable(item) {
+                var self = this;
+                self.name = item.name;
+                self.value = item.value;
+            }
+
+            var viewModel = {
+                Variables: ko.observableArray(),
+                addItem: function (select) {
+                    var preItem = @Html.Raw(Json.Serialize(new Docker.Benchmarking.Orchestrator.Web.ViewModels.BenchmarkExperimentVariableViewModel()));
+                    if (select == null) {
+                        var item = new Variable(preItem);
+                        return viewModel.Variables.push(item);
+                    }
+                },
+                removeItem: function (item) { viewModel.Variables.remove(item) }
+        };
+
+        $('#HostCloudProvider').add('#BenchmarkCloudProvier').add('#BenchmarkTimeLength').add('#ConcurrentUsers').add('#MaxCost').on('change', function (e) {
+            $.ajax({
+                url: '/BenchmarkExperiment/OptimizedExperimentsResults?hostProvider=' + $('#HostCloudProvider').val() + '&benchmarkProvider=' + $('#BenchmarkCloudProvier').val() + '&experimentLength=' + $('#BenchmarkTimeLength').val() + '&concurrentUsers=' + $('#ConcurrentUsers').val() + '&maxCost=' + $('#MaxCost').val(),
+                type: 'GET',
+                data: {},
+                success: function (data) {
+                    $('#results-container').html(data);
+
+                    var experimentsFound = parseInt($('#experiments-found').html());
+
+                    if (experimentsFound > 0)
+                        $('#btn-submit').removeClass('d-none');
+                    else
+                        $('#btn-submit').addClass('d-none');
+
+
+                }
+            });
+        });
+    </script>
+}

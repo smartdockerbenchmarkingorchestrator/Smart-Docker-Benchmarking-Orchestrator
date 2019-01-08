@@ -1,0 +1,149 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <AssemblyName>Docker.Benchmarking.Orchestrator.Web</AssemblyName>
+    <RootNamespace>Docker.Benchmarking.Orchestrator.Web</RootNamespace>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Templates\**" />
+    <Compile Remove="Views\Partials\**" />
+    <Compile Remove="wwwroot\ben\**" />
+    <Compile Remove="wwwroot\uploads\**" />
+    <Content Remove="Templates\**" />
+    <Content Remove="Views\Partials\**" />
+    <Content Remove="wwwroot\ben\**" />
+    <Content Remove="wwwroot\uploads\**" />
+    <EmbeddedResource Remove="Templates\**" />
+    <EmbeddedResource Remove="Views\Partials\**" />
+    <EmbeddedResource Remove="wwwroot\ben\**" />
+    <EmbeddedResource Remove="wwwroot\uploads\**" />
+    <None Remove="Templates\**" />
+    <None Remove="Views\Partials\**" />
+    <None Remove="wwwroot\ben\**" />
+    <None Remove="wwwroot\uploads\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Create.cshtml.cs" />
+    <Compile Remove="Pages\Delete.cshtml.cs" />
+    <Compile Remove="Pages\Details.cshtml.cs" />
+    <Compile Remove="Pages\Edit.cshtml.cs" />
+    <Compile Remove="Pages\Index.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="azurebenchmarkh-deploymentJson.json" />
+    <Content Remove="azurebenchmarkh-parameters.json" />
+    <Content Remove="DockerBA6367131-deploymentJson.json" />
+    <Content Remove="DockerBA6367131-parameters.json" />
+    <Content Remove="DockerBenchmarkingArchistrator636713121476719704-deploymentJson.json" />
+    <Content Remove="DockerBenchmarkingArchistrator636713121476719704-parameters.json" />
+    <Content Remove="mneetest5resourcegroup111636713144986524348-deploymentJson.json" />
+    <Content Remove="mneetest5resourcegroup111636713144986524348-parameters.json" />
+    <Content Remove="mneetest5resourcegroup636713142990192560-deploymentJson.json" />
+    <Content Remove="mneetest5resourcegroup636713142990192560-parameters.json" />
+    <Content Remove="Pages\Create.cshtml" />
+    <Content Remove="Pages\Delete.cshtml" />
+    <Content Remove="Pages\Details.cshtml" />
+    <Content Remove="Pages\Edit.cshtml" />
+    <Content Remove="Pages\Index.cshtml" />
+    <Content Remove="Views\Shared\_DataTablesScriptsPartial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="1.2.3" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
+    <PackageReference Include="CsvHelper" Version="7.1.1" />
+    <PackageReference Include="Docker.DotNet" Version="3.125.2" />
+    <PackageReference Include="ElmahCore" Version="1.0.4" />
+    <PackageReference Include="ErikEJ.EntityFrameworkCore.DgmlBuilder" Version="2.1.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.0.100" />
+    <PackageReference Include="Hangfire" Version="1.6.20" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.6.20" />
+    <PackageReference Include="Hangfire.Console" Version="1.4.1" />
+    <PackageReference Include="Hangfire.PostgreSql" Version="1.4.8.2" />
+    <PackageReference Include="MediatR" Version="5.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Connections.Abstractions" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.ResponseCompression" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.2" />
+    <PackageReference Include="StructureMap.Microsoft.DependencyInjection" Version="1.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="TinyCsvParser" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Docker.Benchmarking.Orchestrator.Core\Docker.Benchmarking.Orchestrator.Core.csproj" />
+    <ProjectReference Include="..\Docker.Benchmarking.Orchestrator.Infrastructure\Docker.Benchmarking.Orchestrator.Infrastructure.csproj" />
+    <ProjectReference Include="..\Docker.Benchmarking.Orchestrator.Optimizer\Docker.Benchmarking.Orchestrator.Optimizer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\_DataTablesScriptsPartial.cshtml" />
+    <None Include="wwwroot\Entities.dgml" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\npm.js" />
+    <None Include="wwwroot\lib\izitoast\dist\js\iziToast.js" />
+    <None Include="wwwroot\lib\izitoast\dist\js\iziToast.min.js" />
+    <None Include="wwwroot\lib\izitoast\gulpfile.js" />
+    <None Include="wwwroot\lib\izitoast\LICENSE" />
+    <None Include="wwwroot\lib\izitoast\README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\AzureCredentials\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\AzureCredentials\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Azure\Edit.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\BenchmarkExperiment\BenchmarkServerResults.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\BenchmarkExperiment\Completed.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Docker\Hosts.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\BenchmarkExperimentsAllTable\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\BenchmarkTestTable\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\signalr\" />
+  </ItemGroup>
+
+</Project>

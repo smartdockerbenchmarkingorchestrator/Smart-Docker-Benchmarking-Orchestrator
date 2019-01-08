@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Docker.Benchmarking.Orchestrator.Web.APIModels.DockerStatsApiModel>
+
+<div class="table-responsive">
+    <table id="docker-stats-table" class="table table-striped table-sm" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateTimeUtc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpuPercentage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryUsage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryLimit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NetworkInput)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NetworkOutput)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BlockInput)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BlockOutput)
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTimeUtc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CpuPercentage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryUsage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryLimit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemoryPercentage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NetworkInput)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NetworkOutput)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BlockInput)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BlockOutput)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateTimeUtc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CpuPercentage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryUsage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryLimit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemoryPercentage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NetworkInput)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NetworkOutput)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BlockInput)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BlockOutput)
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

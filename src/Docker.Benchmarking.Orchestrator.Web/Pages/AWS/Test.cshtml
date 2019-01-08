@@ -1,0 +1,22 @@
+﻿@page
+@model Docker.Benchmarking.Orchestrator.Web.Pages.AWS.TestModel
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h2>Test</h2>
+
+<form method="post">
+    <h2>What kind of yoga classes you are looking for?</h2>
+    <input type="submit"
+           value="Basic Yoga Postures"
+           asp-page-handler="YogaPostures" asp-route-sessioncount="20" />
+    <br />
+    <input type="submit"
+           value="Kriya and Meditation"
+           asp-page-handler="Meditation" asp-route-sessioncount="10" />
+    <br />
+    <input type="submit"
+           value="Restorative Yoga"
+           asp-page-handler="RestorativeYoga" asp-route-sessioncount="15" />
+</form>

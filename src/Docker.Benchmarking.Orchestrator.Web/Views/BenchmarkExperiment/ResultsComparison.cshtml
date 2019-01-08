@@ -1,0 +1,147 @@
+﻿@model Docker.Benchmarking.Orchestrator.Web.ViewModels.ResultsComparisonViewModel
+
+@{
+    ViewData["Title"] = "Results Comparison for Application: " + Model.Name;
+}
+
+<h1 class="h2">@ViewData["Title"]</h1> <hr />
+
+                                       <div class="row">
+                                           <div class="col-md-12">
+                                               <div class="form-group">
+                                                   <label class="control-label">Select Experiments to Compare:</label>
+                                                   <select asp-items="@Model.CompletedExperiments" multiple id="experiments" class="form-control js-example-basic-multiple"></select>
+                                               </div>
+                                           </div>
+                                       </div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2 class="h4">CPU Percentage</h2>
+        <canvas class="my-4 w-100" id="cpuStats" width="900" height="400"></canvas>
+    </div>
+    <div class="col-sm-12">
+        <h2 class="h4">Memory Percentage</h2>
+        <canvas class="my-4 w-100" id="memoryStats" width="900" height="400"></canvas>
+    </div>
+    <div class="col-sm-12">
+        <h2 class="h4">Network I/O</h2>
+        <canvas class="my-4 w-100" id="networkIO" width="900" height="400"></canvas>
+    </div>
+    <div class="col-sm-12">
+        <h2 class="h4">Block(Disk) I/O</h2>
+        <canvas class="my-4 w-100" id="blockIO" width="900" height="400"></canvas>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    <script>
+        $('#experiments').change(function () {
+
+            var values = $(this).val();
+
+            $.ajax({
+                    type: "POST",
+                    url: "/api/GraphResults/GetContainerMetricsForBenchmarkComparison",
+                    data: { 'ids': values },
+                    async: true,
+                    dataType: "json",
+                })
+                .done(function(data) {
+                    if (data) {
+
+                        console.log(data);
+
+                        var x = false;
+                        var i = 0;
+                        var labelArray;
+                        while (!x) {
+
+                            if (data[i].results.length > 0) {
+                                labelArray = data[i].results.map(function(el) {
+                                    var d = new Date(el.dateTimeUtc);
+                                    return formatDateForGraphLabel(d);
+                                });
+                                x = true;
+                            }
+
+                            i++;
+                        }
+
+                        var dataSets = [];
+                        var y = 0;
+                        data.forEach(function(entry) {
+                            var cpuData = entry.results.map(function(el) { return el.cpuPercentage; });
+
+                            var set = {
+                                data: cpuData,
+                                label: entry.id,
+                                lineTension: 0,
+                                backgroundColor: 'transparent',
+                                borderColor: colors[y],
+                                borderWidth: 4,
+                                pointBackgroundColor: colors[y]
+                            };
+                            y++;
+                            console.log(set);
+
+                            dataSets.push(set);
+                        });
+
+                        console.log(dataSets);
+
+                        var cpuCtx = document.getElementById("cpuStats");
+
+                        graph(cpuCtx, labelArray, dataSets);
+
+
+                        //var cpuData = data.map(function (el) { return el.cpuPercentage; });
+
+                        //var distances = {}, e;
+                        //for (var i = 0, l = data.length; i < l; i++) {
+                        //    e = data[i];
+                        //    distances[e.applicationId] = (distances[e.applicationId]);
+                        //}
+
+                        //console.log(distances);
+
+                        //var distinctTests = _.chain(data).map(function (item) { return item.applicationId }).uniq().value();
+
+                        //console.log(distinctTests);
+
+                    }
+                })
+                .fail(function(xhr) {
+                    toastr.error(xhr.responseText, 'Error');
+                });
+
+        });
+
+        function graph(ctx, labelArray, dataArray) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labelArray,
+                    datasets: dataArray
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: false
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            });
+        }
+
+        var colors = ['#007bff', '#ff6384', '#36a2eb', '#cc65fe', '#ffce56'];
+    </script>
+
+}

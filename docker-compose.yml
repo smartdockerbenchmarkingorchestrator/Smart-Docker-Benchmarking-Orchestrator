@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  docker.benchmarking.orchestrator.web:
+    image: ${DOCKER_REGISTRY}dockerbenchmarkingorchestratorweb
+    build:
+      context: .
+      dockerfile: src/Docker.Benchmarking.Orchestrator.Web/Dockerfile

@@ -1,0 +1,94 @@
+﻿@model Docker.Benchmarking.Orchestrator.Core.Entities.DockerImage
+
+@{
+    ViewData["Title"] = "Docker Image: " + Model.ImageName;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageTag)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageTag)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrivateRepository)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrivateRepository)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrivateRepositoryHost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrivateRepositoryHost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrivateRepositoryUsername)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrivateRepositoryUsername)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrivateRepositoryPassword)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrivateRepositoryPassword)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExternalPort)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExternalPort)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InternalPort)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InternalPort)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeCreated)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeCreated)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    <a asp-action="Images">Back to List</a>
+</div>
